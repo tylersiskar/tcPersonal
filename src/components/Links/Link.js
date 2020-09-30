@@ -2,15 +2,17 @@ import React from 'react';
 import { Link as ReactLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-const StyledLink = styled(ReactLink)`
-  color: white;
+const StyledLink = styled.a`
+  color: #086375;
   font-size: 28px;
-  font-family: Helvetica;
+  font-family: botoni;
   text-decoration: none;
 
   &:hover {
     color: gray;
+
   }
+  transition: color 0.35s ease;
   padding-right: 64px;
   ${({ home }) => home && `
     font-family: cursive;
@@ -19,7 +21,7 @@ const StyledLink = styled(ReactLink)`
 `;
 
 const Link = props => {
-	return <StyledLink home={props.home} to={props.to}> {props.children} </StyledLink>
+	return <StyledLink home={props.home}  href={props.href} onClick={props.onClick}> {props.children} </StyledLink>
 }
 
 export default Link;

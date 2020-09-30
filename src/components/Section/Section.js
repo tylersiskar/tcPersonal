@@ -14,10 +14,9 @@ const defaultProps = {
 	bodyColor: 'white'
 }
 const SectionWrapper = styled.div`
-	padding-top: 300px;
 	padding-left: 100px;
 	padding-right: 100px;
-	padding: 300px 100px;
+	padding-bottom: 350px;
 	display: flex;
 	flex-direction: column;
 `;
@@ -28,17 +27,50 @@ const HeaderWrapper = styled.span`
 	padding-bottom: 16px;
 `;
 
-const BodyWrapper = styled.span``;
+const TextWrapper = styled.span`
+	display: flex;
+	min-height: 300px;
+	width: 100%;
+	padding-right: 100px;
+	justify-content: space-between;
+`;
+
+const BodyWrapper = styled.span`
+	display: flex;
+	flex-basis: 50%;
+	width: 50%;
+	padding-right: 24px;
+	box-sizing: border-box;
+`;
+
+const Center = styled.span`
+	display: flex;
+	flex-basis: 50%;
+	width: 50%;
+	padding: 0 44px;
+	justify-content: flex-end;
+	align-items: center;
+`;
+const ImageWrapper = styled.img`
+	display: flex;
+	border-radius: 20px;
+	max-width: 400px;
+`;
 
 const Section = props => {
 	return (
-		<SectionWrapper>
+		<SectionWrapper  id={props.id}>
 			<HeaderWrapper>
-				<Title size="large" bold color={props.titleColor}> {props.title} </Title>
+				<Title size="large"  color={props.titleColor}> {props.title} </Title>
 			</HeaderWrapper>
-			<BodyWrapper>
-				<Body color={props.bodyColor}> {props.body} </Body>
-			</BodyWrapper>
+			<TextWrapper>
+				<BodyWrapper>
+					<Body color={props.bodyColor} size="large"> {props.body} </Body>
+				</BodyWrapper>
+				<Center>
+				<ImageWrapper src={props.img}/>
+				</Center>
+			</TextWrapper>
 		</SectionWrapper>
 	)
 }

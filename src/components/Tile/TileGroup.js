@@ -5,12 +5,14 @@ import Tile from './Tile';
 
 const Container = styled.div`
 	display: flex;
+	flex-wrap: wrap;
 `;
 
 const TileWrapper = styled.div`
   height: 300px;
   width: 300px;
   padding: 24px;
+  display: flex;
 `;
 
 
@@ -21,7 +23,7 @@ const TileGroup = props => {
 		{data.map((item, index) => {
 			return (
 				<TileWrapper>
-					<Tile header={item.header} img={item.img} onClick={item.onClick} />
+					<Tile href={item.href} header={item.link} img={item.img} onClick={item.onClick} id={item.id}/>
 				</TileWrapper>
 				)
 			})

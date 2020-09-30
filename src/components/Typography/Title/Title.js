@@ -16,6 +16,8 @@ const defaultProps = {
 
 const TitleComponent = styled.h1`
 	font-family: bodoni;
+	z-index: ${({ header }) => header ? 999 : 0};
+	margin: 0;
 	font-weight: ${({ bold }) => bold ? 'bold' : '450'};
 	text-transform: uppercase;
 	color: ${({ color }) => color};
@@ -23,7 +25,7 @@ const TitleComponent = styled.h1`
 		font-size: ${({ size }) => size}px;
 	}
 	@media (min-width: 320px) and (max-width: 967px) {
-		font-size: ${({ size }) => 24}px;
+		font-size: ${({ size }) => 32}px;
 	}
 	@media (min-width: 1150px) {
 		font-size: ${({ logo, size }) => logo ? 44 : size}px;

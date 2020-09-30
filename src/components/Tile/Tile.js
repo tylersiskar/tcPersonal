@@ -28,17 +28,36 @@ const TileWrapper = styled.div`
 	background-size: cover;
 	border-radius: 20px;
 	padding: 16px;
+	overflow: hidden;
 	opacity: 1;
 	&:hover {
 		cursor: pointer;
 	}
 `;
 
-const AllWrapper = styled.div`
+const AllWrapper = styled.a`
 	display: flex;
 	position: relative;
 	min-height: 300px;
 	min-width: 300px;
+	text-decoration: none;
+	img {
+		opacity: 0.5;
+	}
+	h1 {
+		color: #086375
+	}
+	&:hover {
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
+		img {
+			opacity: 0.9;
+	    	transform: scale(1.1, 1.1);
+	    	background-size: 120%;
+		}
+		h1 {
+			color: white;
+		}
+	}
 `;
 
 const ColorWrapper = styled.div`
@@ -49,11 +68,7 @@ const ColorWrapper = styled.div`
     height: 100%;
     background-color: white;
     border-radius: 20px;
-    opacity: 0.7;
-    	transition: opacity 0.5s ease;
-    &:hover {
-    	opacity: 0;
-    }
+    opacity: 0.9;
 `;
 
 const Image = styled.img`
@@ -63,40 +78,43 @@ const Image = styled.img`
     left: 0px;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     object-fit: cover;
     object-position: center center;
-    opacity: 0;
-    	transition: opacity 0.5s ease;
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
+    opacity: 0.5;
     &:hover {
-    	opacity: 0.7;
+	    transform: scale(1.1, 1.1);
+	    background-size: 120%;
+    	opacity: 0.9;
     }
-    z-index: 3;
+    z-index: 1;
 `;
 
 const HeaderWrapper = styled.span`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100%:
+	height: 100%;
 `;
 
 const Tile = props => {
-	
+
 	function _onClick(e) {
 		props.onClick && props.onClick(e);
 	}
 
 	return (
-		<AllWrapper onClick={_onClick}>
+		<AllWrapper onClick={_onClick} id={props.id} href={props.href}>
 			<TileWrapper>
-				<Image src={props.img} />
 				<ColorWrapper>
+				<Image src={props.img} />
+				</ColorWrapper>
 				<div style={{display: 'flex', height: '100%', alignItems: 'center', justifyContent: 'center'}}>
 				<HeaderWrapper>
 					<Title  bold size="small" color={"#086375"}> {props.header} </Title>
 				</HeaderWrapper>
 				</div>
-				</ColorWrapper>
 			</TileWrapper>
 		</AllWrapper>
 	)

@@ -6,16 +6,17 @@ const GroupContainer = styled.span`
 	display: flex;
 	padding: 64px;
 	align-items: center;
+	background: transparent;
 `;
 
 const LinkGroup = props => {
 	const { data } = props;
 	return (
 		<GroupContainer>
-		{data.map((item, index) => {
-			console.log(item.link)
+		{data && data.map((item, index) => {
+			console.log(item.href);
 			return(
-			<Link home={item.home} to={item.to}> {item.link} </Link>
+			<Link onClick={item.onClick} href={item.href}> {item.link} </Link>
 			)
 		})}
 		</GroupContainer>

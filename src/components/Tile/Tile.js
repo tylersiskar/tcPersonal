@@ -33,6 +33,9 @@ const TileWrapper = styled.div`
 	&:hover {
 		cursor: pointer;
 	}
+	@media screen and (max-width: 767px) {
+    	width: 100%;
+    }
 `;
 
 const AllWrapper = styled.a`
@@ -58,6 +61,10 @@ const AllWrapper = styled.a`
 			color: white;
 		}
 	}
+
+	@media screen and (max-width: 767px) {
+    	width: 100%;
+    }
 `;
 
 const ColorWrapper = styled.div`
@@ -69,6 +76,10 @@ const ColorWrapper = styled.div`
     background-color: white;
     border-radius: 20px;
     opacity: 0.9;
+
+	@media screen and (max-width: 767px) {
+    	width: 100%;
+    }
 `;
 
 const Image = styled.img`
@@ -89,6 +100,10 @@ const Image = styled.img`
     	opacity: 0.9;
     }
     z-index: 1;
+    
+	@media screen and (max-width: 767px) {
+    	width: 100%;
+    }
 `;
 
 const HeaderWrapper = styled.span`

@@ -24,6 +24,9 @@ const Background = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: 767px) {
+    background: transparent;
+  }
 `;
 const StyledHeader = styled.header`
   display: inline-flex;
@@ -64,6 +67,10 @@ const ContentWrapper = styled.span`
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 500px;
+
+  @media screen and (max-width: 767px) {
+      padding-bottom: 50px;
+    }
 `;
 
 const TitleWrapper = styled.span`
@@ -72,6 +79,12 @@ const TitleWrapper = styled.span`
   display: flex;
   box-sizing: border-box;
   justify-content: flex-start;
+  @media screen and (max-width: 1024px) {
+    padding-left: 50px;
+  }
+  @media screen and (max-width: 767px) {
+    padding: 0;
+  }
 `;
 
 

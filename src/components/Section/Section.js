@@ -19,6 +19,13 @@ const SectionWrapper = styled.div`
 	padding-bottom: 350px;
 	display: flex;
 	flex-direction: column;
+	@media screen and (max-width: 1024px) {
+		padding: 0px;
+	}
+
+	@media screen and (max-width: 767px) {
+    	align-items: center;
+    }
 `;
 
 const HeaderWrapper = styled.span`
@@ -33,6 +40,12 @@ const TextWrapper = styled.span`
 	width: 100%;
 	padding-right: 100px;
 	justify-content: space-between;
+
+	@media screen and (max-width: 767px) {
+		flex-direction: column;
+		padding: 0;
+		align-items: center;
+	}
 `;
 
 const BodyWrapper = styled.span`
@@ -50,6 +63,10 @@ const Center = styled.span`
 	padding: 0 44px;
 	justify-content: flex-end;
 	align-items: center;
+
+	@media screen and (max-width: 767px) {
+    	justify-content: center;
+    }
 `;
 const ImageWrapper = styled.img`
 	display: flex;

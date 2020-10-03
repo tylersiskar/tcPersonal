@@ -10,6 +10,9 @@ const HeaderWrapper = styled.span`
 	align-items: center;
 	justify-content: flex-end;
 	background-color: transparent;
+	  @media screen and (max-width: 767px) {
+	    display: none;
+	  }
 `;
 const Header = props => {
 	console.log(props);

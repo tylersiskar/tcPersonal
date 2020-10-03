@@ -1,34 +1,59 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import CoverPage from './pages/CoverPage';
-import styled from 'styled-components';
-import brooklyn from './brooklyn.jpg';
+import tommy from './tommy.jpg';
+import work from './work.jpg';
+import cafe from './cafe.jpg';
+import books from './books.jpg';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-const Page = styled.div`
-  height: 100vh;
-`;
+const tiles = [
+    {
+      link: "ABOUT",
+      img: tommy,
+      href: "#about",
+    },
+    {
+      link: "EDUCATION",
+      img: books,
+      href: "#education",
+    },
+    {
+      link: "WORK",
+      img: work,
+      href: "#work",
+    },
+    {
+      link: "INTERESTS",
+      img: cafe,
+      href: "#interests",
+    }
+];
+let text = `What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?`;
 
-const links = [
+const sections = [
   {
-    link: 'about',
-    home: false
+    header: 'ABOUT',
+    body: text,
+    img: tommy,
+    id: 'about'
   },
   {
-    link: 'education',
-    home: false
+    header: 'EDUCATION',
+    body: text,
+    img: books,
+    id: 'education'
   },
   {
-    link: 'TCS',
-    to: 'homepage',
-    home: true
+    header: 'WORK',
+    body: text,
+    img: work,
+    id: 'work'
   },
   {
-    link: 'work',
-    home: false
-  },
-  {
-    link: 'interests',
-    home: false
+    header: 'INTERESTS',
+    body: text,
+    img: cafe,
+    id: 'interests'
   }
 ];
 
@@ -39,7 +64,7 @@ class App extends React.Component {
       case 'coverPage':
       default:
         return(
-          <CoverPage {...this.props} links={links}/>);
+          <CoverPage {...this.props} tiles={tiles} sections={sections}/>);
     }
 
   }
@@ -48,6 +73,7 @@ class App extends React.Component {
         return (
             <Switch>
               <Route 
+                exact
                 path="/" 
                 component={() => this._renderScreen('coverpage')}/>
             <Redirect to="/"/>

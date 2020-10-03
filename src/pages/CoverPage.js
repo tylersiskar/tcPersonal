@@ -1,11 +1,6 @@
-import React, { Fragment, useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import brooklyn from '../brooklyn.jpg';
-import work from '../work.jpg';
-import tommy from '../tommy.jpg';
-import cafe from '../cafe.jpg';
-import books from '../books.jpg';
 import styled from 'styled-components';
-import {LinkGroup} from '../components/Links';
 import TileGroup from '../components/Tile/TileGroup';
 import { Title } from '../components/Typography';
 import Section from '../components/Section/Section';
@@ -65,12 +60,6 @@ const BodyWrapper = styled.div`
   justify-content: flex-start;
 `;
 
-const TileWrapper = styled.div`
-  height: 300px;
-  width: 300px;
-  padding: 24px;
-`;
-
 const ContentWrapper = styled.span`
   display: flex;
   flex-wrap: wrap;
@@ -87,12 +76,9 @@ const TitleWrapper = styled.span`
 
 
 const CoverPage = props => {
+  const { sections, tiles } = props;
+
   const [ background, setBackground ] = useState('darkslategray');
-  const inputRef = useRef();
-  const [aboutOffset, setAbout ] = useState(0);
-  const [eduOffset, setEdu ] = useState(0);
-  const [workOffset, setWork ] = useState(0);
-  const [interestOffset, setInt ] = useState(0);
   const [header, showHeader ] = useState(false);
 
   useEffect(() => {
@@ -117,30 +103,6 @@ const CoverPage = props => {
     return () => window.removeEventListener('scroll', _setBackgroundColor)
   }, [background] );
 
-  const tiles = [
-    {
-      link: "ABOUT",
-      img: tommy,
-      href: "#about",
-    },
-    {
-      link: "EDUCATION",
-      img: books,
-      href: "#education",
-    },
-    {
-      link: "WORK",
-      img: work,
-      href: "#work",
-    },
-    {
-      link: "INTERESTS",
-      img: cafe,
-      href: "#interests",
-    }
-  ];
-
-  let text = `What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?`;
     return (
       <Page src={brooklyn} color={background}>
       <Background>
@@ -152,18 +114,14 @@ const CoverPage = props => {
           <ContentWrapper>
             <TileGroup data={tiles} />
           </ContentWrapper>
-          <TitleWrapper>
-            <Section title="ABOUT" body={text} id="about" img={tommy}/>
-          </TitleWrapper>
-          <TitleWrapper>
-            <Section title="EDUCATION" body={text} id="education"/>
-          </TitleWrapper>
-          <TitleWrapper>
-            <Section title="WORK" body={text} id="work"/>
-          </TitleWrapper>
-          <TitleWrapper>
-            <Section title="INTERESTS" body={text} id="interests"/>
-          </TitleWrapper>
+        {sections.map((section , index ) => {
+          const { header, body, id, img } = section;
+          return (
+              <TitleWrapper key={index}>
+                <Section title={header} body={body} id={id} img={img}/>
+              </TitleWrapper>
+            )
+        })}
         </BodyWrapper>
         </Background>
       </Page>

@@ -55,7 +55,6 @@ const StyledHeader = styled.header`
 `;
 
 const BodyWrapper = styled.div`
-  display: flex;
   height: 100%;
   flex-direction: column;
   width: 100%;
@@ -68,6 +67,7 @@ const ContentWrapper = styled.span`
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 500px;
+  justify-content: center;
 
   @media screen and (max-width: 767px) {
       padding-bottom: 50px;

@@ -17,6 +17,8 @@ const SectionWrapper = styled.div`
 	padding-left: 100px;
 	padding-right: 100px;
 	padding-bottom: 350px;
+	height: 100%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	@media screen and (max-width: 1024px) {
@@ -32,12 +34,14 @@ const HeaderWrapper = styled.span`
 	display: flex;
 	justify-content: flex-start;
 	padding-bottom: 16px;
+	height: 100%;
 `;
 
 const TextWrapper = styled.span`
 	display: flex;
 	min-height: 300px;
 	width: 100%;
+	height: 100%;
 	padding-right: 100px;
 	justify-content: space-between;
 
@@ -52,6 +56,7 @@ const BodyWrapper = styled.span`
 	display: flex;
 	flex-basis: 50%;
 	width: 50%;
+	height: 100%;
 	padding-right: 24px;
 	box-sizing: border-box;
 

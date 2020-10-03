@@ -28,6 +28,7 @@ const Background = styled.div`
     background: transparent;
   }
 `;
+
 const StyledHeader = styled.header`
   display: inline-flex;
   align-items: center;

@@ -24,7 +24,7 @@ const TitleComponent = styled.h1`
 	@media (min-width: 967px) {
 		font-size: ${({ size }) => size}px;
 	}
-	@media (min-width: 320px) and (max-width: 967px) {
+	@media (max-width: 967px) {
 		font-size: ${({ size }) => 32}px;
 	}
 	@media (min-width: 1150px) {

@@ -35,6 +35,8 @@ const TileWrapper = styled.div`
 	}
 	@media screen and (max-width: 767px) {
     	width: 100%;
+    	min-width:100px;
+    	min-height: 100px;
     }
 `;
 
@@ -64,6 +66,8 @@ const AllWrapper = styled.a`
 
 	@media screen and (max-width: 767px) {
     	width: 100%;
+    	min-width:100px;
+    	min-height: 100px;
     }
 `;
 

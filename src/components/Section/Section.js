@@ -54,6 +54,10 @@ const BodyWrapper = styled.span`
 	width: 50%;
 	padding-right: 24px;
 	box-sizing: border-box;
+
+	@media screen and (max-width: 767px) {
+		width: 100%;
+	}
 `;
 
 const Center = styled.span`
@@ -66,6 +70,7 @@ const Center = styled.span`
 
 	@media screen and (max-width: 767px) {
     	justify-content: center;
+    	padding: 0;
     }
 `;
 const ImageWrapper = styled.img`

@@ -25,8 +25,8 @@ const TileGroup = props => {
 		<Container>
 		{data.map((item, index) => {
 			return (
-				<TileWrapper>
-					<Tile href={item.href} header={item.link} img={item.img} onClick={item.onClick} id={item.id}/>
+				<TileWrapper key={index}>
+					<Tile  href={item.href} header={item.link} img={item.img} onClick={item.onClick} id={item.id}/>
 				</TileWrapper>
 				)
 			})

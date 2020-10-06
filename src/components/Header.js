@@ -15,7 +15,6 @@ const HeaderWrapper = styled.span`
 	  }
 `;
 const Header = props => {
-	console.log(props);
 	return (
 		<HeaderWrapper>
 			<LinkGroup data={props.links}/>

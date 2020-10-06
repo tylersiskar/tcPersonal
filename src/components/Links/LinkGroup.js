@@ -14,9 +14,8 @@ const LinkGroup = props => {
 	return (
 		<GroupContainer>
 		{data && data.map((item, index) => {
-			console.log(item.href);
 			return(
-			<Link onClick={item.onClick} href={item.href}> {item.link} </Link>
+			<Link key={index} onClick={item.onClick} href={item.href}> {item.link} </Link>
 			)
 		})}
 		</GroupContainer>

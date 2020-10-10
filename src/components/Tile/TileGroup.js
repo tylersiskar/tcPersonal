@@ -21,12 +21,14 @@ const TileWrapper = styled.div`
 
 const TileGroup = props => {
 	const { data } = props;
+	let delay = 200;
 	return (
 		<Container>
 		{data.map((item, index) => {
+			delay = delay + 100;
 			return (
 				<TileWrapper key={index}>
-					<Tile  href={item.href} header={item.link} img={item.img} onClick={item.onClick} id={item.id}/>
+					<Tile delay={delay} href={item.href} header={item.link} img={item.img} onClick={item.onClick} id={item.id}/>
 				</TileWrapper>
 				)
 			})

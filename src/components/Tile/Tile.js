@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import {colors} from '../Theme/colors';
 import tommy from '../../tommy.jpg';
 import { Title } from '../Typography';
+import 'aos/dist/aos.css';
 
 const propTypes = {
 	backgroundColor: Proptypes.string,
@@ -124,7 +125,10 @@ const Tile = props => {
 	}
 
 	return (
-		<AllWrapper onClick={_onClick} id={props.id} href={props.href}>
+		<AllWrapper data-aos="fade-up"
+					data-aos-duration="500"
+					data-aos-delay={props.delay}
+					onClick={_onClick} id={props.id} href={props.href}>
 			<TileWrapper>
 				<ColorWrapper>
 				<Image src={props.img} />

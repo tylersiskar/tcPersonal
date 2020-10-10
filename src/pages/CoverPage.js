@@ -16,9 +16,7 @@ const Page = styled.div`
   height: 5000px;
   width: 100vw;
   position: relative;
-  // overflow: auto;
-  background-color: ${({ color }) => color};
-  transition: background-color 0.3s ease;
+  background-color: black;
 `;
 
 //background transparent wrapper height 50000px;
@@ -72,7 +70,7 @@ const BodyWrapper = styled.div`
 const ContentWrapper = styled.span`
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 500px;
+  padding-bottom: 378px;
   justify-content: center;
 
   @media screen and (max-width: 767px) {
@@ -81,7 +79,6 @@ const ContentWrapper = styled.span`
 `;
 
 const SectionWrapper= styled.span`
-  padding-left: 100px;
   width: 100%;
   display: flex;
   box-sizing: border-box;
@@ -99,7 +96,6 @@ class CoverPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      background: 'black',
       header: false
     }
   }
@@ -107,29 +103,17 @@ class CoverPage extends React.Component {
 
   _setBackgroundColor = () => {
       let scrollY = window.scrollY;
-      if(scrollY >= 3250) {
-        this.setState({ background: '#A0CCDA' });
-      } else if(scrollY >= 2700) {
-        this.setState({ background: 'gray' });
-      } else if(scrollY >= 1700) {
-        this.setState({ background: 'darkgray' });
-      } else if (scrollY >= 1000){
-        this.setState({ background: 'darkslategray', header: true });
+      if (scrollY >= 1000){
+        this.setState({  header: true });
       } else {
-        this.setState({ background: 'black', header: false });
+        this.setState({ header: false });
       }
   }
 
   componentDidMount() {
     this.props.fetchPosts();
     if(window.scrollY > 1000) this.setState({ header: true });
-    window.addEventListener('scroll', this._setBackgroundColor);
   };
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this._setBackgroundColor);
-  }
-
 
    _renderPosts = () => {
       if(this.props.posts && this.props.posts.fields.aboutTitle) {
@@ -150,16 +134,16 @@ class CoverPage extends React.Component {
           return (
             <Fragment>
               <SectionWrapper>
-                <Section title={aboutTitle} body={aboutBody} id={aboutTitle.toLowerCase()} img={tommy}/>
+                <Section color="darkslategray" title={aboutTitle} body={aboutBody} id={aboutTitle.toLowerCase()} img={tommy}/>
               </SectionWrapper>
               <SectionWrapper>
-                <Section title={educationTitle} body={educationBody} id={educationTitle.toLowerCase()} img={books}/>
+                <Section color="gray" title={educationTitle} body={educationBody} id={educationTitle.toLowerCase()} img={books}/>
               </SectionWrapper>
               <SectionWrapper>
-                <Section title={workTitle} body={workBody} id={workTitle.toLowerCase()} img={work}/>
+                <Section color="darkgray" title={workTitle} body={workBody} id={workTitle.toLowerCase()} img={work}/>
               </SectionWrapper>
               <SectionWrapper>
-                <Section title={interestTitle} body={interestBody} id={interestTitle.toLowerCase()} img={cafe}/>
+                <Section color="#A0CCDA" title={interestTitle} body={interestBody} id={interestTitle.toLowerCase()} img={cafe}/>
               </SectionWrapper>
             </Fragment>
             )
@@ -172,11 +156,11 @@ class CoverPage extends React.Component {
 
 
     return (
-      <Page src={brooklyn} color={this.state.background}>
+      <Page src={brooklyn}>
       <Background>
         {this.state.header && <Header links={tiles} />}
-        <StyledHeader>
-        <Title header color="white" bold>Thomas C. Siskar</Title>
+        <StyledHeader data-aos="fade-down" data-aos-duration="500" data-aos-delay="100">
+          <Title header color="white" bold>Thomas C. Siskar</Title>
         </StyledHeader>
         <BodyWrapper>
           <ContentWrapper>

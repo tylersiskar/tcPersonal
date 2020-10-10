@@ -5,6 +5,8 @@ import work from './work.jpg';
 import cafe from './cafe.jpg';
 import books from './books.jpg';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const tiles = [
     {
@@ -58,7 +60,9 @@ const tiles = [
 // ];
 
 class App extends React.Component {
-
+  componentDidMount() {
+    AOS.init();
+  }
  _renderScreen = (route) => {
     switch(route) {
       case 'coverPage':

@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Proptypes from 'prop-types';
 import { Title, Body } from '../Typography';
+import useIntersect from '../../pages/useIntersect';
+import 'aos/dist/aos.css';
 
 const propTypes = {
 	titleColor: Proptypes.string,
@@ -28,6 +30,8 @@ const SectionWrapper = styled.div`
 	@media screen and (max-width: 767px) {
     	align-items: center;
     }
+    background-color: ${({ ratio, color }) => ratio > 0.75 ? color : 'black'};
+    transition: background-color 0.35s ease;
 `;
 
 const HeaderWrapper = styled.span`
@@ -84,9 +88,17 @@ const ImageWrapper = styled.img`
 	max-width: 400px;
 `;
 
+
+const buildThresholdArray = () => Array.from(Array(100).keys(), i => i / 100);
+
 const Section = props => {
+
+  const [ref, entry] = useIntersect({
+    threshold: buildThresholdArray()
+  });
+
 	return (
-		<SectionWrapper  id={props.id}>
+		<SectionWrapper color={props.color} id={props.id} ref={ref} ratio={entry.intersectionRatio} >
 			<HeaderWrapper>
 				<Title size="large"  color={props.titleColor}> {props.title} </Title>
 			</HeaderWrapper>
@@ -95,7 +107,7 @@ const Section = props => {
 					<Body color={props.bodyColor} size="large"> {props.body} </Body>
 				</BodyWrapper>
 				<Center>
-				<ImageWrapper src={props.img}/>
+				<ImageWrapper data-aos="fade-up" data-aos-duration="1000" data-aos-delay="50" src={props.img}/>
 				</Center>
 			</TextWrapper>
 		</SectionWrapper>

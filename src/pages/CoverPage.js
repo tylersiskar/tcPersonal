@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import TileGroup from '../components/Tile/TileGroup';
 import { Title } from '../components/Typography';
 import Section from '../components/Section/Section';
-import Header from '../components/Header';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/index';
+import { colors } from '../colors';
 
 const Page = styled.div`
   height: 5000px;
@@ -93,26 +93,9 @@ const SectionWrapper= styled.span`
 
 
 class CoverPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      header: false
-    }
-  }
-
-
-  _setBackgroundColor = () => {
-      let scrollY = window.scrollY;
-      if (scrollY >= 1000){
-        this.setState({  header: true });
-      } else {
-        this.setState({ header: false });
-      }
-  }
 
   componentDidMount() {
     this.props.fetchPosts();
-    if(window.scrollY > 1000) this.setState({ header: true });
   };
 
    _renderPosts = () => {
@@ -137,10 +120,10 @@ class CoverPage extends React.Component {
                 <Section color="darkslategray" title={aboutTitle} body={aboutBody} id={aboutTitle.toLowerCase()} img={tommy}/>
               </SectionWrapper>
               <SectionWrapper>
-                <Section color="gray" title={educationTitle} body={educationBody} id={educationTitle.toLowerCase()} img={books}/>
+                <Section color={colors.timberwolf} title={educationTitle} body={educationBody} id={educationTitle.toLowerCase()} img={books}/>
               </SectionWrapper>
               <SectionWrapper>
-                <Section color="darkgray" title={workTitle} body={workBody} id={workTitle.toLowerCase()} img={work}/>
+                <Section color={colors.artichoke} title={workTitle} body={workBody} id={workTitle.toLowerCase()} img={work}/>
               </SectionWrapper>
               <SectionWrapper>
                 <Section color="#A0CCDA" title={interestTitle} body={interestBody} id={interestTitle.toLowerCase()} img={cafe}/>
@@ -158,7 +141,6 @@ class CoverPage extends React.Component {
     return (
       <Page src={brooklyn}>
       <Background>
-        {this.state.header && <Header links={tiles} />}
         <StyledHeader data-aos="fade-down" data-aos-duration="500" data-aos-delay="100">
           <Title header color="white" bold>Thomas C. Siskar</Title>
         </StyledHeader>

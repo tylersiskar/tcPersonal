@@ -31,7 +31,7 @@ const SectionWrapper = styled.div`
 	@media screen and (max-width: 767px) {
     	align-items: center;
     }
-    background-color: ${({ ratio, color }) => ratio > 0.75 ? color : 'black'};
+    background-color: ${({ ratio, color }) => ratio > 0.5 ? color : 'black'};
     transition: background-color 0.35s ease;
 `;
 
@@ -95,7 +95,9 @@ const LinkWrapper = styled.span`
 	position: relative;
 	right: 0;
 	top: 20px;
-
+	@media screen and (max-width: 767px) {
+		display: none;
+	}
 `;
 
 const buildThresholdArray = () => Array.from(Array(100).keys(), i => i / 100);
@@ -121,7 +123,11 @@ const Section = props => {
 
 	return (
 		<SectionWrapper color={props.color} id={props.id} ref={ref} ratio={entry.intersectionRatio}>
-		<LinkWrapper> <Link color="white" href={href}> {`Go to ${href.substring(1, href.length).toUpperCase()}`} </Link> </LinkWrapper>
+			<LinkWrapper> 
+				<Link color="white" href={href}> 
+				{`Go to ${href.substring(1, href.length).toUpperCase()}`} 
+				</Link> 
+			</LinkWrapper>
 			<HeaderWrapper>
 				<Title size="large"  color={props.titleColor}> {props.title} </Title>
 			</HeaderWrapper>

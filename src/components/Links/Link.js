@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledLink = styled.a`
-  color: #086375;
+  color: ${({ color }) => color ? color : '#086375'};
   font-size: 28px;
   font-family: botoni;
   text-decoration: none;
@@ -20,7 +20,7 @@ const StyledLink = styled.a`
 `;
 
 const Link = props => {
-	return <StyledLink home={props.home}  href={props.href} onClick={props.onClick}> {props.children} </StyledLink>
+	return <StyledLink color={props.color} home={props.home}  href={props.href} onClick={props.onClick}> {props.children} </StyledLink>
 }
 
 export default Link;

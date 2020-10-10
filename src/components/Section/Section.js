@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Proptypes from 'prop-types';
+import Link  from '../Links/Link';
 import { Title, Body } from '../Typography';
 import useIntersect from '../../pages/useIntersect';
 import 'aos/dist/aos.css';
@@ -88,17 +89,39 @@ const ImageWrapper = styled.img`
 	max-width: 400px;
 `;
 
+const LinkWrapper = styled.span`
+	display: flex;
+	justify-content: flex-end;
+	position: relative;
+	right: 0;
+	top: 20px;
+
+`;
 
 const buildThresholdArray = () => Array.from(Array(100).keys(), i => i / 100);
 
 const Section = props => {
-
+  const [ href, setHref ] = useState(_determineHref());
   const [ref, entry] = useIntersect({
     threshold: buildThresholdArray()
   });
+  function _determineHref() {
+  	switch(props.id){
+  		case "about":
+  			return "#education";
+  		case "education":
+  			return "#work";
+  		case "work":
+  			return "#interests";
+  		case "interests":
+  		default:
+  			return "#about";
+  	}
+  }
 
 	return (
 		<SectionWrapper color={props.color} id={props.id} ref={ref} ratio={entry.intersectionRatio}>
+		<LinkWrapper> <Link color="white" href={href}> {`Go to ${href.substring(1, href.length).toUpperCase()}`} </Link> </LinkWrapper>
 			<HeaderWrapper>
 				<Title size="large"  color={props.titleColor}> {props.title} </Title>
 			</HeaderWrapper>

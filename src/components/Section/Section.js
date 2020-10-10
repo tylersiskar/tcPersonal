@@ -98,7 +98,7 @@ const Section = props => {
   });
 
 	return (
-		<SectionWrapper color={props.color} id={props.id} ref={ref} ratio={entry.intersectionRatio} >
+		<SectionWrapper color={props.color} id={props.id} ref={ref} ratio={entry.intersectionRatio}>
 			<HeaderWrapper>
 				<Title size="large"  color={props.titleColor}> {props.title} </Title>
 			</HeaderWrapper>
@@ -107,7 +107,7 @@ const Section = props => {
 					<Body color={props.bodyColor} size="large"> {props.body} </Body>
 				</BodyWrapper>
 				<Center>
-				<ImageWrapper data-aos="fade-up" data-aos-duration="1000" data-aos-delay="50" src={props.img}/>
+				<ImageWrapper src={props.img}/>
 				</Center>
 			</TextWrapper>
 		</SectionWrapper>

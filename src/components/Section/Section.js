@@ -101,7 +101,7 @@ const LinkWrapper = styled.span`
 const buildThresholdArray = () => Array.from(Array(100).keys(), i => i / 100);
 
 const Section = props => {
-  const [ href, setHref ] = useState(_determineHref());
+  const [ href ] = useState(_determineHref());
   const [ref, entry] = useIntersect({
     threshold: buildThresholdArray()
   });

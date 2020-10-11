@@ -30,6 +30,7 @@ const SectionWrapper = styled.div`
 
 	@media screen and (max-width: 767px) {
     	align-items: center;
+    	padding-bottom: 24px;
     }
     background-color: ${({ ratio, color }) => ratio > 0.5 ? color : 'black'};
     transition: background-color 0.35s ease;
@@ -67,6 +68,7 @@ const BodyWrapper = styled.span`
 
 	@media screen and (max-width: 767px) {
 		width: 100%;
+		padding: 24px;
 	}
 `;
 

@@ -80,6 +80,7 @@ const ContentWrapper = styled.span`
 
 const SectionWrapper= styled.span`
   width: 100%;
+  height: 100vh;
   display: flex;
   box-sizing: border-box;
   justify-content: flex-start;

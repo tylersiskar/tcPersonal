@@ -40,7 +40,6 @@ const HeaderWrapper = styled.span`
 	display: flex;
 	justify-content: flex-start;
 	padding-bottom: 16px;
-	height: 100%;
 `;
 
 const TextWrapper = styled.span`

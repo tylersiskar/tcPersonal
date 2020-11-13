@@ -126,7 +126,7 @@ const Section = props => {
 		<SectionWrapper color={props.color} id={props.id} ref={ref} ratio={entry.intersectionRatio}>
 			<LinkWrapper> 
 				<Link color="white" href={href}> 
-				{`Go to ${href.substring(1, href.length).toUpperCase()}`} 
+				{`${href.substring(1, href.length).toUpperCase()}`} 
 				</Link> 
 			</LinkWrapper>
 			<HeaderWrapper>

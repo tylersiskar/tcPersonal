@@ -6,9 +6,9 @@ const StyledLink = styled.a`
   font-size: 28px;
   font-family: botoni;
   text-decoration: none;
-
+  color: gray;
   &:hover {
-    color: gray;
+    color: white;
 
   }
   transition: color 0.35s ease;

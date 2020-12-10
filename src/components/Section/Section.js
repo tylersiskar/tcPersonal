@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Proptypes from 'prop-types';
 import Link  from '../Links/Link';
 import { Title, Body } from '../Typography';
+import { colors } from '../../colors';
 import useIntersect from '../../pages/useIntersect';
 import 'aos/dist/aos.css';
 
@@ -15,87 +16,60 @@ const propTypes = {
 const defaultProps = {
 	titleColor: 'white',
 	bodyColor: 'white'
-}
+};
+
 const SectionWrapper = styled.div`
-	padding-left: 100px;
-	padding-right: 100px;
-	padding-bottom: 350px;
-	height: 100%;
-	width: 100%;
 	display: flex;
 	flex-direction: column;
-	@media screen and (max-width: 1024px) {
-		padding: 0px;
-	}
-
-	@media screen and (max-width: 767px) {
-    	align-items: center;
-    	padding-bottom: 24px;
-    }
-    background-color: ${({ ratio, color }) => ratio > 0.5 ? color : 'black'};
-    transition: background-color 0.35s ease;
-`;
-
-const HeaderWrapper = styled.span`
-	display: flex;
-	justify-content: flex-start;
-	padding-bottom: 16px;
-`;
-
-const TextWrapper = styled.span`
-	display: flex;
-	min-height: 300px;
-	width: 100%;
-	height: 100%;
-	padding-right: 100px;
-	justify-content: space-between;
-
-	@media screen and (max-width: 767px) {
-		flex-direction: column;
-		padding: 0;
-		align-items: center;
-	}
+	background-color: ${({ ratio, color }) => ratio > 0.5 ? color : 'black'};
+	transition: background-color 0.35s ease;
+	padding: 0 32px 24px 32px;
+	min-height: 100vh;
+	box-sizing: border-box;
 `;
 
 const BodyWrapper = styled.span`
 	display: flex;
-	flex-basis: 50%;
-	width: 50%;
-	height: 100%;
-	padding-right: 24px;
-	box-sizing: border-box;
-
+	flex-direction: row;
 	@media screen and (max-width: 767px) {
-		width: 100%;
-		padding: 24px;
+		flex-direction: column;
 	}
 `;
 
-const Center = styled.span`
+const TextContainer = styled.span`
 	display: flex;
-	flex-basis: 50%;
-	width: 50%;
-	padding: 0 44px;
-	justify-content: flex-end;
+	flex-direction: column;
 	align-items: center;
-
+	border-radius: 24px;
+	background-color: #7AA095;
+	padding: 16px;
+	margin-right: 24px;
+	box-shadow: 0 0 2px white;
+	flex-basis: 50%;
 	@media screen and (max-width: 767px) {
-    	justify-content: center;
-    	padding: 0;
-    }
-`;
-const ImageWrapper = styled.img`
-	display: flex;
-	border-radius: 20px;
-	max-width: 400px;
+		flex-basis: 100%;	
+		margin-right: 0;
+	}
 `;
 
-const LinkWrapper = styled.span`
+const TitleWrapper = styled.span`
 	display: flex;
-	justify-content: flex-end;
-	position: relative;
-	right: 0;
-	top: 20px;
+	justify-content: flex-start;
+	@media screen and (max-width: 767px) {
+		justify-content: center;
+	}
+`;
+
+const ImageWrapper = styled.span`
+	display: block;
+	background-image: url(${({ url }) => url});
+	background-size: cover;
+	background-position: center;
+	min-width: 300px;
+	min-height: 300px;
+	border-radius: 24px;
+	width: 50%;
+	margin-left: 24px;
 	@media screen and (max-width: 767px) {
 		display: none;
 	}
@@ -104,6 +78,8 @@ const LinkWrapper = styled.span`
 const buildThresholdArray = () => Array.from(Array(100).keys(), i => i / 100);
 
 const Section = props => {
+  const { img, img2 } = props;
+
   const [ href ] = useState(_determineHref());
   const [ref, entry] = useIntersect({
     threshold: buildThresholdArray()
@@ -124,22 +100,24 @@ const Section = props => {
 
 	return (
 		<SectionWrapper color={props.color} id={props.id} ref={ref} ratio={entry.intersectionRatio}>
-			<LinkWrapper> 
+			{/*<LinkWrapper> 
 				<Link color="white" href={href}> 
 				{`${href.substring(1, href.length).toUpperCase()}`} 
 				</Link> 
-			</LinkWrapper>
-			<HeaderWrapper>
-				<Title size="large"  color={props.titleColor}> {props.title} </Title>
-			</HeaderWrapper>
-			<TextWrapper>
-				<BodyWrapper>
+			</LinkWrapper>*/}
+		  <TitleWrapper>
+			<Title size="large"  color={props.titleColor}> {props.title} </Title>
+		  </TitleWrapper>
+		  <BodyWrapper>
+			{/*<TextWrapper>
 					<Body color={props.bodyColor} size="large"> {props.body} </Body>
-				</BodyWrapper>
-				<Center>
-				<ImageWrapper src={props.img}/>
-				</Center>
-			</TextWrapper>
+			</TextWrapper>*/}
+			<TextContainer>
+				<Body size="large" bold>{props.bodyHeader}</Body>
+				<Body textAlign="center"> {props.body} </Body>
+			</TextContainer>
+			<ImageWrapper url={props.url} />
+		  </BodyWrapper>
 		</SectionWrapper>
 	)
 }

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import brooklyn from '../brooklyn.jpg';
-import tommy from '../tommy.jpg';
-import work from '../work.jpg';
+import buffalo from '../buffalo.jpg';
+import psu from '../psu.jpg';
 import cafe from '../cafe.jpg';
 import books from '../books.jpg';
 import styled from 'styled-components';
@@ -13,23 +13,27 @@ import { fetchPosts } from '../actions/index';
 import { colors } from '../colors';
 
 const Page = styled.div`
-  height: 5000px;
   width: 100vw;
   position: relative;
   background-color: black;
+  height: 100%;
 `;
 
 //background transparent wrapper height 50000px;
 const Background = styled.div`
-  height: 1000px;
-  background-image: url(${brooklyn});
-  background-size: cover;
-  background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 32px;
+  box-sizing: border-box;
+  height: 100vh;
+  background-image: url(${brooklyn});
+  background-size: cover;
+  background-position: center;
   @media screen and (max-width: 767px) {
-    background: transparent;
+    padding: 0;
+    background: lightgray;
   }
 `;
 
@@ -37,9 +41,8 @@ const StyledHeader = styled.header`
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  justify-content: center;
+  justify-content: flex-start;
   background: transparent;
-  padding-top: 100px;
   color: white;
   font-size: 64px;
   font-family: bodoni;
@@ -58,40 +61,25 @@ const StyledHeader = styled.header`
   }
 `;
 
-const BodyWrapper = styled.div`
-  height: 100%;
-  flex-direction: column;
-  width: 100%;
-  padding-top: 100px;
-  align-items: center;
-  justify-content: flex-start;
-`;
-
 const ContentWrapper = styled.span`
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 378px;
   justify-content: center;
-
-  @media screen and (max-width: 767px) {
-      padding-bottom: 50px;
-    }
-`;
-
-const SectionWrapper= styled.span`
+  padding: 20px;
   width: 100%;
-  height: 100vh;
-  display: flex;
-  box-sizing: border-box;
-  justify-content: flex-start;
-  @media screen and (max-width: 1024px) {
-    padding-left: 50px;
-  }
   @media screen and (max-width: 767px) {
+    padding: 0;
+    height: 100%;
+  }  
+  @media screen and  (max-width: 1024px) {
     padding: 0;
   }
 `;
 
+
+const BodyWrapper = styled.div`
+  
+`;
 
 class CoverPage extends React.Component {
 
@@ -117,18 +105,10 @@ class CoverPage extends React.Component {
         } = this.props.posts.fields;
           return (
             <Fragment>
-              <SectionWrapper>
-                <Section color="darkslategray" title={aboutTitle} body={aboutBody} id={aboutTitle.toLowerCase()} img={tommy}/>
-              </SectionWrapper>
-              <SectionWrapper>
-                <Section color={colors.timberwolf} title={educationTitle} body={educationBody} id={educationTitle.toLowerCase()} img={books}/>
-              </SectionWrapper>
-              <SectionWrapper>
-                <Section color={colors.artichoke} title={workTitle} body={workBody} id={workTitle.toLowerCase()} img={work}/>
-              </SectionWrapper>
-              <SectionWrapper>
-                <Section color="#A0CCDA" title={interestTitle} body={interestBody} id={interestTitle.toLowerCase()} img={cafe}/>
-              </SectionWrapper>
+                <Section color="darkslategray" title={aboutTitle} bodyHeader="Hometown" body={aboutBody} id={aboutTitle.toLowerCase()} url={buffalo}/>
+                <Section color={colors.timberwolf} title={educationTitle} body={educationBody} bodyHeader="Schools" id={educationTitle.toLowerCase()} url={psu} />
+                <Section color={colors.artichoke} title={workTitle} body={workBody} bodyHeader="Experience" id={workTitle.toLowerCase()} url={books} />
+                <Section color='#EADDA6' title={interestTitle} body={interestBody} bodyHeader="Hobbies" id={interestTitle.toLowerCase()} url={cafe} />
             </Fragment>
             )
       } 
@@ -143,15 +123,13 @@ class CoverPage extends React.Component {
       <Page src={brooklyn}>
       <Background>
         <StyledHeader data-aos="fade-down" data-aos-duration="500" data-aos-delay="100">
-          <Title header color="white" bold>Thomas C. Siskar</Title>
+          <Title header size="small" color="white" bold>Thomas C. Siskar</Title>
         </StyledHeader>
-        <BodyWrapper>
-          <ContentWrapper>
-            <TileGroup data={tiles} />
-          </ContentWrapper>
-        {this._renderPosts()}
-        </BodyWrapper>
+        <ContentWrapper>
+          <TileGroup data={tiles} />
+        </ContentWrapper>
         </Background>
+        {this._renderPosts()}
       </Page>
   );
 }

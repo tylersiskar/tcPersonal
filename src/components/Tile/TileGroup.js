@@ -5,6 +5,13 @@ import Tile from './Tile';
 const Container = styled.div`
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
+	height: 100%;
+
+	@media screen and (max-width: 767px) {
+		flex-direction: column;
+		width: 100%;
+	}
 `;
 
 const TileWrapper = styled.div`
@@ -15,6 +22,8 @@ const TileWrapper = styled.div`
 
   @media screen and (max-width: 767px) {
 	 width: 100%;
+	 padding: 0;
+	 height: 25%;
   }
 `;
 
@@ -27,7 +36,7 @@ const TileGroup = props => {
 		{data.map((item, index) => {
 			delay = delay + 100;
 			return (
-				<TileWrapper key={index}>
+				<TileWrapper key={index} data={data}>
 					<Tile delay={delay} href={item.href} header={item.link} img={item.img} onClick={item.onClick} id={item.id}/>
 				</TileWrapper>
 				)

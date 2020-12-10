@@ -15,28 +15,24 @@ const defaultProps = {
 }
 
 const TitleComponent = styled.h1`
-	font-family: bodoni;
-	z-index: ${({ header }) => header ? 999 : 0};
-	margin: 0;
+	font-size: ${({ fontSize, size }) => fontSize(size)}px;
 	font-weight: ${({ bold }) => bold ? 'bold' : '450'};
-	text-transform: uppercase;
 	color: ${({ color }) => color};
-	@media (min-width: 967px) {
-		font-size: ${({ size }) => size}px;
-	}
-	@media (max-width: 967px) {
-		font-size: ${({ size }) => 44}px;
-	}
-	@media (min-width: 1150px) {
-		font-size: ${({ logo, size }) => logo ? 44 : size}px;
+	font-family: bodoni;
+	margin: 0;
+	text-transform: uppercase;
+	z-index: ${({ header }) => header ? 999 : 0};
+	@media screen and (max-width: 1024px) {
+		font-size: ${({ mobileSize, size }) => mobileSize(size)}px;
 	}
 `;
 
-const Title = props => {
-	const { size, children } = props;
+const Title = (props) => {
+	const { size, children, customFontSize, header } = props;
 
 	function _determineFontSize(size) {
 		if( typeof size === 'number' ) return size;
+		if(header) return 64;
 		switch(size) {
 			case "xSmall":
 				return 32;
@@ -50,8 +46,22 @@ const Title = props => {
 		}
 	}
 
+	function _determineMobileSize(size) {
+		if( typeof size === 'number' ) return size;
+		switch(size) {
+			case "xSmall":
+				return 24;
+			case "small":
+				return 32;
+			case "medium":
+				return 48;
+			case "large":
+			default:
+				return 64;
+		}
+	}
 	return (
-		<TitleComponent {...props} logo={props.logo}size={_determineFontSize(size)}>
+		<TitleComponent {...props} fontSize={_determineFontSize} mobileSize={_determineMobileSize} customFontSize={customFontSize}>
 		{children}
 		</TitleComponent>
 		)

@@ -28,7 +28,7 @@ const TitleComponent = styled.h1`
 `;
 
 const Title = (props) => {
-	const { size, children, customFontSize, header } = props;
+	const { children, customFontSize, header } = props;
 
 	function _determineFontSize(size) {
 		if( typeof size === 'number' ) return size;

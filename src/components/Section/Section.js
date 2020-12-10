@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Proptypes from 'prop-types';
-import Link  from '../Links/Link';
+// import Link  from '../Links/Link';
 import { Title, Body } from '../Typography';
-import { colors } from '../../colors';
+// import { colors } from '../../colors';
 import useIntersect from '../../pages/useIntersect';
 import 'aos/dist/aos.css';
 
@@ -78,25 +78,23 @@ const ImageWrapper = styled.span`
 const buildThresholdArray = () => Array.from(Array(100).keys(), i => i / 100);
 
 const Section = props => {
-  const { img, img2 } = props;
-
-  const [ href ] = useState(_determineHref());
+  // const [ href ] = useState(_determineHref());
   const [ref, entry] = useIntersect({
     threshold: buildThresholdArray()
   });
-  function _determineHref() {
-  	switch(props.id){
-  		case "about":
-  			return "#education";
-  		case "education":
-  			return "#work";
-  		case "work":
-  			return "#interests";
-  		case "interests":
-  		default:
-  			return "#about";
-  	}
-  }
+  // function _determineHref() {
+  // 	switch(props.id){
+  // 		case "about":
+  // 			return "#education";
+  // 		case "education":
+  // 			return "#work";
+  // 		case "work":
+  // 			return "#interests";
+  // 		case "interests":
+  // 		default:
+  // 			return "#about";
+  // 	}
+  // }
 
 	return (
 		<SectionWrapper color={props.color} id={props.id} ref={ref} ratio={entry.intersectionRatio}>

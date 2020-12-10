@@ -76,11 +76,6 @@ const ContentWrapper = styled.span`
   }
 `;
 
-
-const BodyWrapper = styled.div`
-  
-`;
-
 class CoverPage extends React.Component {
 
   componentDidMount() {

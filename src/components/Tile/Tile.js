@@ -34,7 +34,7 @@ const TileWrapper = styled.div`
 	&:hover {
 		cursor: pointer;
 	}
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 1024px) {
     	width: 100%;
     	min-width:100px;
     	min-height: 100px;
@@ -65,7 +65,7 @@ const AllWrapper = styled.a`
 		}
 	}
 
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 1024px) {
     	width: 100%;
     	min-width:100px;
     	min-height: 100px;
@@ -82,7 +82,7 @@ const ColorWrapper = styled.div`
     border-radius: 20px;
     opacity: 0.9;
 
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 1024px) {
     	width: 100%;
     }
 `;
@@ -106,7 +106,7 @@ const Image = styled.img`
     }
     z-index: 1;
     
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 1024px) {
     	width: 100%;
     }
 `;

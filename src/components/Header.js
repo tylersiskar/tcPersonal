@@ -10,7 +10,7 @@ const HeaderWrapper = styled.span`
 	align-items: center;
 	justify-content: flex-end;
 	background-color: transparent;
-	  @media screen and (max-width: 767px) {
+	  @media screen and (max-width: 1024px) {
 	    display: none;
 	  }
 `;

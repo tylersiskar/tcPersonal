@@ -19,7 +19,7 @@ const BodyComponent = styled.span`
 	font-size: ${({ size }) => size}px;
 	font-weight: ${({ bold }) => bold ? 'bold' : '450'};
 	color: ${({ color }) => color};
-	@media (max-width: 767px) {
+	@media (max-width: 1024px) {
 		font-size: ${({ size }) => size - 4}px;
 	}
 	text-align: ${({ textAlign }) => textAlign};

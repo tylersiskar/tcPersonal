@@ -40,7 +40,7 @@ const Background = styled.div`
   background-image: url(${brooklyn});
   background-size: cover;
   background-position: center;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1024px) {
     padding: 0;
     background: lightgray;
   }
@@ -76,7 +76,7 @@ const ContentWrapper = styled.span`
   justify-content: center;
   padding: 20px;
   width: 100%;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1024px) {
     padding: 0;
     height: 100%;
   }  

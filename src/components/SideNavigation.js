@@ -12,12 +12,13 @@ const SideNavigationContainer = styled.div`
   bottom: 0;
   right: 0;
   background: transparent;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1024px) {
     display: none;
   }
 `;
 
 const Link = styled.a`
+  width: fit-content;
   color: white;
   text-decoration: none;
   text-transform: lowercase;
@@ -26,10 +27,10 @@ const Link = styled.a`
   line-height: 20px;
   letter-spacing: 4px;
   padding: 12px;
-  padding-bottom: 64px;
+  margin-bottom: 64px;
   opacity: 1;
   &:hover {
-    color: darkslategray;
+    color: lightgray;
     cursor: pointer;
   }
 `;

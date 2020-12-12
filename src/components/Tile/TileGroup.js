@@ -8,7 +8,7 @@ const Container = styled.div`
 	justify-content: center;
 	height: 100%;
 
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 1024px) {
 		flex-direction: column;
 		width: 100%;
 	}
@@ -20,7 +20,7 @@ const TileWrapper = styled.div`
   padding: 24px;
   display: flex;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1024px) {
 	 width: 100%;
 	 padding: 0;
 	 height: 25%;

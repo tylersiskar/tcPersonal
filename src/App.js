@@ -31,6 +31,24 @@ const tiles = [
     }
 ];
 
+const sideNavLinks = [
+    {
+      label: "ABOUT",
+      href: "#about",
+    },
+    {
+      label: "EDUCATION",
+      href: "#education",
+    },
+    {
+      label: "WORK",
+      href: "#work",
+    },
+    {
+      label: "INTERESTS",
+      href: "#interests",
+    }];
+
 class App extends React.Component {
   componentDidMount() {
     AOS.init();
@@ -40,7 +58,7 @@ class App extends React.Component {
       case 'coverPage':
       default:
         return(
-          <CoverPage {...this.props} tiles={tiles}/>);
+          <CoverPage {...this.props} sideNavLinks={sideNavLinks} tiles={tiles}/>);
     }
 
   }

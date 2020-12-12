@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import brooklyn from '../brooklyn.jpg';
 import buffalo from '../buffalo.jpg';
 import psu from '../psu.jpg';
@@ -8,9 +8,18 @@ import styled from 'styled-components';
 import TileGroup from '../components/Tile/TileGroup';
 import { Title } from '../components/Typography';
 import Section from '../components/Section/Section';
+import SideNavigation from '../components/SideNavigation';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/index';
-import { colors } from '../colors';
+// import { colors } from '../colors';
+// import useIntersect from './useIntersect';
+
+const WholePage = styled.div`
+  display: flex;
+  width 100%;
+  position: relative;
+`;
+
 
 const Page = styled.div`
   width: 100vw;
@@ -76,11 +85,28 @@ const ContentWrapper = styled.span`
   }
 `;
 
-class CoverPage extends React.Component {
 
+// const buildThresholdArray = () => Array.from(Array(100).keys(), i => i / 100);
+
+class CoverPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      scollPosition: window.pageYOffset || 0
+    }
+  }
   componentDidMount() {
     this.props.fetchPosts();
+    window.addEventListener('scroll', () => {
+      this.setState({ scollPosition: window.pageYOffset});
+    });
   };
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', () => {
+      this.setState({ scollPosition: window.pageYOffset});
+    });
+  }
 
    _renderPosts = () => {
       if(this.props.posts && this.props.posts.fields.aboutTitle) {
@@ -99,21 +125,24 @@ class CoverPage extends React.Component {
           // interestImage 
         } = this.props.posts.fields;
           return (
-            <Fragment>
-                <Section color="darkslategray" title={aboutTitle} bodyHeader="Hometown" body={aboutBody} id={aboutTitle.toLowerCase()} url={buffalo}/>
-                <Section color={colors.timberwolf} title={educationTitle} body={educationBody} bodyHeader="Schools" id={educationTitle.toLowerCase()} url={psu} />
-                <Section color={colors.artichoke} title={workTitle} body={workBody} bodyHeader="Experience" id={workTitle.toLowerCase()} url={books} />
-                <Section color='#EADDA6' title={interestTitle} body={interestBody} bodyHeader="Hobbies" id={interestTitle.toLowerCase()} url={cafe} />
-            </Fragment>
+            <div style={{width: '100%'}}>
+                <Section fromColor="#001021" color="#022C35" title={aboutTitle} bodyHeader="Hometown" body={aboutBody} id={aboutTitle.toLowerCase()} url={buffalo}/>
+                <Section fromColor="#022C35" color="#034748" title={educationTitle} body={educationBody} bodyHeader="Schools" id={educationTitle.toLowerCase()} url={psu} />
+                               <Section fromColor="#034748" color='#085665' title={workTitle} body={workBody} bodyHeader="Experience" id={workTitle.toLowerCase()} url={books} />
+                                <Section fromColor='#085665' color='#0C6481' title={interestTitle} body={interestBody} bodyHeader="Hobbies" id={interestTitle.toLowerCase()} url={cafe} />
+            </div>
             )
       } 
     }
       
 
   render() {
-  const { tiles } = this.props;
+  const { tiles, sideNavLinks } = this.props;
+  // const [ref, entry] = useIntersect({
+  //   threshold: buildThresholdArray()
+  // });
 
-
+  console.log(this.state.scollPosition);
     return (
       <Page src={brooklyn}>
       <Background>
@@ -124,7 +153,10 @@ class CoverPage extends React.Component {
           <TileGroup data={tiles} />
         </ContentWrapper>
         </Background>
+      <WholePage>
         {this._renderPosts()}
+      <SideNavigation show={this.state.scollPosition > 750} links={sideNavLinks} />
+      </WholePage>
       </Page>
   );
 }

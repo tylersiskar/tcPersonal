@@ -4,7 +4,7 @@ import Proptypes from 'prop-types';
 // import Link  from '../Links/Link';
 import { Title, Body } from '../Typography';
 // import { colors } from '../../colors';
-import useIntersect from '../../pages/useIntersect';
+// import useIntersect from '../../pages/useIntersect';
 import 'aos/dist/aos.css';
 
 const propTypes = {
@@ -21,11 +21,23 @@ const defaultProps = {
 const SectionWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	background-color: ${({ ratio, color }) => ratio > 0.5 ? color : 'black'};
-	transition: background-color 0.35s ease;
+	background: linear-gradient(${({ fromColor }) => fromColor}, ${({ color }) => color});
 	padding: 0 32px 24px 32px;
 	min-height: 100vh;
 	box-sizing: border-box;
+`;
+
+const SizeWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	background: transparent;
+	padding: 0 32px 24px 32px;
+	min-height: 100vh;
+	box-sizing: border-box;
+	width: calc(100% - 300px);
+	@media screen and (max-width: 767px) {
+		width: 100%;
+	}
 `;
 
 const BodyWrapper = styled.span`
@@ -41,10 +53,8 @@ const TextContainer = styled.span`
 	flex-direction: column;
 	align-items: center;
 	border-radius: 24px;
-	background-color: #7AA095;
-	padding: 16px;
+	background: transparent;
 	margin-right: 24px;
-	box-shadow: 0 0 2px white;
 	flex-basis: 50%;
 	@media screen and (max-width: 767px) {
 		flex-basis: 100%;	
@@ -75,13 +85,13 @@ const ImageWrapper = styled.span`
 	}
 `;
 
-const buildThresholdArray = () => Array.from(Array(100).keys(), i => i / 100);
+// const buildThresholdArray = () => Array.from(Array(100).keys(), i => i / 100);
 
 const Section = props => {
   // const [ href ] = useState(_determineHref());
-  const [ref, entry] = useIntersect({
-    threshold: buildThresholdArray()
-  });
+  // const [ref, entry] = useIntersect({
+  //   threshold: buildThresholdArray()
+  // });
   // function _determineHref() {
   // 	switch(props.id){
   // 		case "about":
@@ -97,25 +107,32 @@ const Section = props => {
   // }
 
 	return (
-		<SectionWrapper color={props.color} id={props.id} ref={ref} ratio={entry.intersectionRatio}>
+		<SectionWrapper color={props.color} fromColor={props.fromColor} id={props.id} >
+		<SizeWrapper>
 			{/*<LinkWrapper> 
 				<Link color="white" href={href}> 
 				{`${href.substring(1, href.length).toUpperCase()}`} 
 				</Link> 
 			</LinkWrapper>*/}
-		  <TitleWrapper>
+		  <TitleWrapper 
+					data-aos="fade-up"
+					data-aos-duration="500"
+					data-aos-delay="200">
 			<Title size="large"  color={props.titleColor}> {props.title} </Title>
 		  </TitleWrapper>
-		  <BodyWrapper>
+		  <BodyWrapper 
+					data-aos="fade-up"
+					data-aos-duration="500"
+					data-aos-delay="200">
 			{/*<TextWrapper>
 					<Body color={props.bodyColor} size="large"> {props.body} </Body>
 			</TextWrapper>*/}
 			<TextContainer>
-				<Body size="large" bold>{props.bodyHeader}</Body>
-				<Body textAlign="center"> {props.body} </Body>
+				<Body size="large" textAlign="left"> {props.body} </Body>
 			</TextContainer>
 			<ImageWrapper url={props.url} />
 		  </BodyWrapper>
+		  </SizeWrapper>
 		</SectionWrapper>
 	)
 }

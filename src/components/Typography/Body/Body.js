@@ -15,6 +15,7 @@ const defaultProps = {
 }
 
 const BodyComponent = styled.span`
+	letter-spacing: 1px;
 	font-family: bodoni;
 	font-size: ${({ size }) => size}px;
 	font-weight: ${({ bold }) => bold ? 'bold' : '450'};

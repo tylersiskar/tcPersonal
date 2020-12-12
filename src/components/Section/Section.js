@@ -42,7 +42,7 @@ const SizeWrapper = styled.div`
 const BodyWrapper = styled.span`
 	display: flex;
 	flex-direction: row;
-	@media screen and (max-width: 1024px) {
+	@media screen and (max-width: 1272px) {
 		flex-direction: column;
 	}
 `;
@@ -79,6 +79,11 @@ const ImageWrapper = styled.span`
 	border-radius: 24px;
 	width: 50%;
 	margin-left: 24px;
+	@media screen and (max-width: 1272px) {
+		width: 100%;
+		margin-top: 24px;
+		margin-left: 0;
+	}
 	@media screen and (max-width: 1024px) {
 		display: none;
 	}

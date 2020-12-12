@@ -5,7 +5,7 @@ import useIntersect from '../pages/useIntersect';
 const SideNavigationContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 200px;
   padding-top: 24px;
   position: fixed;
   top: 0;

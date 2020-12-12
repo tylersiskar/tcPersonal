@@ -129,7 +129,7 @@ class App extends React.Component {
           <LinkGroup>
           <Link href="mailto:tomcsiskar@gmail.com"> email </Link>
           <Link href="https://www.linkedin.com/in/thomas-siskar/" target="_blank"> linkedin </Link>
-          <Link href="file:///C:Users\tylersiskar\Desktop\development\tommysite\src\resume.pdf"> resume </Link>
+          <Link href="file:///C:Users\tylersiskar\Desktop\development\tommysite\public\resume.html" onClick={e => alert('Sorry, resume is unavailable right now!')}> resume </Link>
           </LinkGroup>
           </Footer>
           </Fragment>

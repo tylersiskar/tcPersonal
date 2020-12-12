@@ -31,7 +31,6 @@ const SizeWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	background: transparent;
-	padding: 0 32px 24px 32px;
 	min-height: 100vh;
 	box-sizing: border-box;
 	width: calc(100% - 300px);

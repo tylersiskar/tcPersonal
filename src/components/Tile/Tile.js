@@ -34,6 +34,10 @@ const TileWrapper = styled.div`
 	&:hover {
 		cursor: pointer;
 	}
+    @media screen and (max-width: 1272px) {
+	   min-height: 250px;
+	   min-width: 250px;
+    }
 	@media screen and (max-width: 1024px) {
     	width: 100%;
     	min-width:100px;
@@ -64,11 +68,15 @@ const AllWrapper = styled.a`
 			color: white;
 		}
 	}
+    @media screen and (max-width: 1272px) {
+	   min-height: 250px;
+	   min-width: 250px;
+    }
 
 	@media screen and (max-width: 1024px) {
     	width: 100%;
-    	min-width:100px;
-    	min-height: 100px;
+	   min-height: 100px;
+	   min-width: 100px;
     }
 `;
 

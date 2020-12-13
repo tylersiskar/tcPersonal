@@ -40,7 +40,7 @@ const Background = styled.div`
   background-image: url(${brooklyn});
   background-size: cover;
   background-position: center;
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 767px) {
     padding: 0;
     background: lightgray;
   }

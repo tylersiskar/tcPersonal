@@ -121,7 +121,7 @@ class App extends React.Component {
           <CoverPage {...this.props} sideNavLinks={sideNavLinks} tiles={tiles}/>
           <Footer>
           <StyledHeader>
-          <Title header size={48} color="white" bold>Thomas C. Siskar</Title>
+          <Title header size={36} color="white" bold>Thomas C. Siskar</Title>
           </StyledHeader>
           <div style={{paddingBottom: 16}}>
           <Body size="medium"> Investment Strategist & MBA Student </Body>

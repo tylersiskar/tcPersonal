@@ -7,7 +7,7 @@ const Container = styled.div`
 	flex-wrap: wrap;
 	justify-content: center;
 	height: 100%;
-
+	width: 100%;
 	@media screen and (max-width: 1024px) {
 		flex-direction: column;
 		width: 100%;
@@ -20,7 +20,11 @@ const TileWrapper = styled.div`
   padding: 24px;
   display: flex;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1272px) {
+	 height: 250px;
+	 width: 250px;
+  }
+  @media screen and (max-width: 767px) {
 	 width: 100%;
 	 padding: 0;
 	 height: 25%;

@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import styled from 'styled-components';
 import CoverPage from './pages/CoverPage';
 import Footer from './components/Footer';
 import tommy from './tommy.jpg';
@@ -50,10 +49,6 @@ const sideNavLinks = [
       label: "INTERESTS",
       href: "#interests",
     }];
-
-const LinkGroup = styled.span`
-  display: flex;
-`;
 
 class App extends React.Component {
   componentDidMount() {

@@ -22,8 +22,8 @@ const TileWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	min-height: 300px;
-	min-width: 300px;
+	min-height: 250px;
+	min-width: 250px;
 	background-image: none;
 	background-position: center;
 	background-size: cover;
@@ -48,8 +48,8 @@ const TileWrapper = styled.div`
 const AllWrapper = styled.a`
 	display: flex;
 	position: relative;
-	min-height: 300px;
-	min-width: 300px;
+	min-height: 250px;
+	min-width: 250px;
 	text-decoration: none;
 	img {
 		opacity: 0.5;
@@ -143,7 +143,7 @@ const Tile = props => {
 				</ColorWrapper>
 				<div style={{display: 'flex', height: '100%', alignItems: 'center', justifyContent: 'center'}}>
 				<HeaderWrapper>
-					<Title  bold size="small" color={"#086375"}> {props.header} </Title>
+					<Title  bold size="xSmall" color={"#086375"}> {props.header} </Title>
 				</HeaderWrapper>
 				</div>
 			</TileWrapper>

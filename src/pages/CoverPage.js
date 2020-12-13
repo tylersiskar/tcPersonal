@@ -28,7 +28,6 @@ const Page = styled.div`
   height: 100%;
 `;
 
-//background transparent wrapper height 50000px;
 const Background = styled.div`
   display: flex;
   flex-direction: column;
@@ -126,10 +125,10 @@ class CoverPage extends React.Component {
         } = this.props.posts.fields;
           return (
             <div style={{width: '100%'}}>
-                <Section fromColor="#001021" color="#022C35" title={aboutTitle} bodyHeader="Hometown" body={aboutBody} id={aboutTitle.toLowerCase()} url={buffalo}/>
-                <Section fromColor="#022C35" color="#034748" title={educationTitle} body={educationBody} bodyHeader="Schools" id={educationTitle.toLowerCase()} url={psu} />
-                               <Section fromColor="#034748" color='#085665' title={workTitle} body={workBody} bodyHeader="Experience" id={workTitle.toLowerCase()} url={books} />
-                                <Section fromColor='#085665' color='#0C6481' title={interestTitle} body={interestBody} bodyHeader="Hobbies" id={interestTitle.toLowerCase()} url={cafe} />
+              <Section fromColor="#001021" color="#022C35" title={aboutTitle} bodyHeader="Hometown" body={aboutBody} id={aboutTitle.toLowerCase()} url={buffalo}/>
+              <Section fromColor="#022C35" color="#034748" title={educationTitle} body={educationBody} bodyHeader="Schools" id={educationTitle.toLowerCase()} url={psu} />
+              <Section fromColor="#034748" color='#085665' title={workTitle} body={workBody} bodyHeader="Experience" id={workTitle.toLowerCase()} url={books} />
+              <Section fromColor='#085665' color='#0C6481' title={interestTitle} body={interestBody} bodyHeader="Hobbies" id={interestTitle.toLowerCase()} url={cafe} />
             </div>
             )
       } 
@@ -142,7 +141,6 @@ class CoverPage extends React.Component {
   //   threshold: buildThresholdArray()
   // });
 
-  console.log(this.state.scollPosition);
     return (
       <Page src={brooklyn}>
       <Background>

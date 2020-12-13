@@ -15,8 +15,8 @@ const Container = styled.div`
 `;
 
 const TileWrapper = styled.div`
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
   padding: 24px;
   display: flex;
 

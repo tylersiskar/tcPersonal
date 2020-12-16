@@ -132,7 +132,7 @@ const Section = props => {
 					<Body color={props.bodyColor} size="large"> {props.body} </Body>
 			</TextWrapper>*/}
 			<TextContainer>
-				<Body size="large" textAlign="left"> {props.body} </Body>
+				<Body size="large" textAlign="justify"> {props.body} </Body>
 			</TextContainer>
 			<ImageWrapper url={props.url} />
 		  </BodyWrapper>

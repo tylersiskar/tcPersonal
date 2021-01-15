@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Title, Body } from './Typography';
+import Pdf from './MBA_Siskar_Thomas.pdf';
 
 const FooterWrapper = styled.span`
   display: flex;
@@ -71,7 +72,7 @@ const Footer = props => {
 	          <LinkContainer>
 		          <Link href="mailto:tomcsiskar@gmail.com"> email </Link>
 		          <Link href="https://www.linkedin.com/in/thomas-siskar/" target="_blank"> linkedin </Link>
-		          <Link href="file:///C:Users\tylersiskar\Desktop\development\tommysite\public\resume.html" onClick={e => alert('Sorry, resume is unavailable right now!')}> 
+		          <Link href={Pdf} target="_blank"> 
 		          resume 
 		          </Link>
 	          </LinkContainer>

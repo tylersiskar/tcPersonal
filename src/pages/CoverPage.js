@@ -64,7 +64,7 @@ const StyledHeader = styled.header`
     width: 100%;
     height: 22px;
     background-color: #086375;
-    opacity: 0.7;
+    opacity: 1;
     z-index: 0;
   }
 `;

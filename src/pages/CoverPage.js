@@ -4,8 +4,6 @@ import styled from 'styled-components';
 import { SideNavigation, TileGroup, Title, Section } from '../components';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/index';
-// import { colors } from '../colors';
-// import useIntersect from './useIntersect';
 
 const WholePage = styled.div`
   display: flex;
@@ -78,8 +76,6 @@ const ContentWrapper = styled.span`
 `;
 
 
-// const buildThresholdArray = () => Array.from(Array(100).keys(), i => i / 100);
-
 class CoverPage extends React.Component {
   constructor(props) {
     super(props);
@@ -100,57 +96,50 @@ class CoverPage extends React.Component {
     });
   }
 
-   _renderPosts = () => {
-      if(this.props.posts && this.props.posts.fields.aboutTitle) {
-        const { 
-          aboutBody, 
-          aboutTitle, 
-          // aboutImage, 
-          educationTitle, 
-          educationBody, 
-          // educationImage, 
-          workTitle, 
-          workBody, 
-          // workImage, 
-          interestTitle, 
-          interestBody, 
-          // interestImage 
-        } = this.props.posts.fields;
-          return (
-            <div style={{width: '100%'}}>
-              <Section fromColor="#001021" color="#022C35" title={aboutTitle} bodyHeader="Hometown" body={aboutBody} id={aboutTitle.toLowerCase()} url={buffalo}/>
-              <Section fromColor="#022C35" color="#034748" title={educationTitle} body={educationBody} bodyHeader="Schools" id={educationTitle.toLowerCase()} url={psu} />
-              <Section fromColor="#034748" color='#085665' title={workTitle} body={workBody} bodyHeader="Experience" id={workTitle.toLowerCase()} url={books} />
-              <Section fromColor='#085665' color='#0C6481' title={interestTitle} body={interestBody} bodyHeader="Hobbies" id={interestTitle.toLowerCase()} url={cafe} />
-            </div>
-            )
-      } 
-    }
+  _renderPosts = () => {
+    if(this.props.posts && this.props.posts.fields.aboutTitle) {
+      const { 
+        aboutBody, 
+        aboutTitle, 
+        educationTitle, 
+        educationBody, 
+        workTitle, 
+        workBody, 
+        interestTitle, 
+        interestBody, 
+      } = this.props.posts.fields;
+        return (
+          <div style={{width: '100%'}}>
+            <Section fromColor="#001021" color="#022C35" title={aboutTitle} bodyHeader="Hometown" body={aboutBody} id={aboutTitle.toLowerCase()} url={buffalo}/>
+            <Section fromColor="#022C35" color="#034748" title={educationTitle} body={educationBody} bodyHeader="Schools" id={educationTitle.toLowerCase()} url={psu} />
+            <Section fromColor="#034748" color='#085665' title={workTitle} body={workBody} bodyHeader="Experience" id={workTitle.toLowerCase()} url={books} />
+            <Section fromColor='#085665' color='#0C6481' title={interestTitle} body={interestBody} bodyHeader="Hobbies" id={interestTitle.toLowerCase()} url={cafe} />
+          </div>
+        )
+    } 
+  }
       
 
   render() {
-  const { tiles, sideNavLinks } = this.props;
-  // const [ref, entry] = useIntersect({
-  //   threshold: buildThresholdArray()
-  // });
+    const { tiles, sideNavLinks } = this.props;
 
     return (
-      <Page src={brooklyn}>
-      <Background>
-        <StyledHeader data-aos="fade-down" data-aos-duration="500" data-aos-delay="100">
-          <Title header size="small" color="white" bold>Thomas C. Siskar</Title>
-        </StyledHeader>
-        <ContentWrapper>
-          <TileGroup data={tiles} />
-        </ContentWrapper>
-        </Background>
-      <WholePage>
-        {this._renderPosts()}
-      <SideNavigation show={this.state.scollPosition > 750} links={sideNavLinks} />
-      </WholePage>
-      </Page>
-  );
-}
+        <Page src={brooklyn}>
+          <Background>
+            <StyledHeader data-aos="fade-down" data-aos-duration="500" data-aos-delay="100">
+              <Title header size="small" color="white" bold>Thomas C. Siskar</Title>
+            </StyledHeader>
+            <ContentWrapper>
+              <TileGroup data={tiles} />
+            </ContentWrapper>
+          </Background>
+          <WholePage>
+            {this._renderPosts()}
+            <SideNavigation show={this.state.scollPosition > 750} links={sideNavLinks} />
+          </WholePage>
+        </Page>
+    );
+  }
 }
 
 function mapStateToProps(state) {

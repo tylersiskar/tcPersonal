@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import useIntersect from '../../pages/useIntersect';
 
@@ -44,20 +44,20 @@ const SideNavigation = props => {
   });
 
   return (
-    <React.Fragment>
+    <Fragment>
     {show &&
-    <SideNavigationContainer ref={ref} ratio={entry.intersectionRatio}>
-    {links?.map((link, index) => {
-      return (
-        <Link 
-          data-aos="fade-left"
-          data-aos-duration="500"
-          data-aos-delay={`${index + 1}00`}
-          href={link.href}> {link.label} </Link>
-        )
-    })}
-    </SideNavigationContainer>}
-    </React.Fragment>
+      <SideNavigationContainer ref={ref} ratio={entry.intersectionRatio}>
+      {links?.map((link, index) => {
+        return (
+          <Link 
+            data-aos="fade-left"
+            data-aos-duration="500"
+            data-aos-delay={`${index + 1}00`}
+            href={link.href}> {link.label} </Link>
+          )
+      })}
+      </SideNavigationContainer>}
+    </Fragment>
   )
 }
 

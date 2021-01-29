@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Proptypes from 'prop-types';
 import { Title, Body } from '../Typography';
-// import useIntersect from '../../pages/useIntersect';
 import 'aos/dist/aos.css';
 
 const propTypes = {
@@ -87,53 +86,27 @@ const ImageWrapper = styled.span`
 	}
 `;
 
-// const buildThresholdArray = () => Array.from(Array(100).keys(), i => i / 100);
 
 const Section = props => {
-  // const [ href ] = useState(_determineHref());
-  // const [ref, entry] = useIntersect({
-  //   threshold: buildThresholdArray()
-  // });
-  // function _determineHref() {
-  // 	switch(props.id){
-  // 		case "about":
-  // 			return "#education";
-  // 		case "education":
-  // 			return "#work";
-  // 		case "work":
-  // 			return "#interests";
-  // 		case "interests":
-  // 		default:
-  // 			return "#about";
-  // 	}
-  // }
 
 	return (
 		<SectionWrapper color={props.color} fromColor={props.fromColor} id={props.id} >
-		<SizeWrapper>
-			{/*<LinkWrapper> 
-				<Link color="white" href={href}> 
-				{`${href.substring(1, href.length).toUpperCase()}`} 
-				</Link> 
-			</LinkWrapper>*/}
-		  <TitleWrapper 
-					data-aos="fade-up"
-					data-aos-duration="500"
-					data-aos-delay="200">
-			<Title size="large"  color={props.titleColor}> {props.title} </Title>
-		  </TitleWrapper>
-		  <BodyWrapper 
-					data-aos="fade-up"
-					data-aos-duration="500"
-					data-aos-delay="200">
-			{/*<TextWrapper>
-					<Body color={props.bodyColor} size="large"> {props.body} </Body>
-			</TextWrapper>*/}
-			<TextContainer>
-				<Body size="large" textAlign="justify"> {props.body} </Body>
-			</TextContainer>
-			<ImageWrapper url={props.url} />
-		  </BodyWrapper>
+			<SizeWrapper>
+			  <TitleWrapper 
+						data-aos="fade-up"
+						data-aos-duration="500"
+						data-aos-delay="200">
+					<Title size="large"  color={props.titleColor}> {props.title} </Title>
+			  </TitleWrapper>
+			  <BodyWrapper 
+						data-aos="fade-up"
+						data-aos-duration="500"
+						data-aos-delay="200">
+					<TextContainer>
+						<Body size="large" textAlign="justify"> {props.body} </Body>
+					</TextContainer>
+					<ImageWrapper url={props.url} />
+			  </BodyWrapper>
 		  </SizeWrapper>
 		</SectionWrapper>
 	)

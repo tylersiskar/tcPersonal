@@ -7,7 +7,6 @@ import 'aos/dist/aos.css';
 const propTypes = {
 	titleColor: Proptypes.string,
 	bodyColor: Proptypes.string,
-
 };
 
 const defaultProps = {
@@ -22,6 +21,10 @@ const SectionWrapper = styled.div`
 	padding: 0 32px 24px 32px;
 	min-height: 100vh;
 	box-sizing: border-box;
+	@media screen and (max-width: 1024px) {
+		width: 100%;
+		min-height: 300px;
+	}
 `;
 
 const SizeWrapper = styled.div`
@@ -33,6 +36,7 @@ const SizeWrapper = styled.div`
 	width: calc(100% - 300px);
 	@media screen and (max-width: 1024px) {
 		width: 100%;
+		min-height: 300px;
 	}
 `;
 
@@ -81,9 +85,6 @@ const ImageWrapper = styled.span`
 		margin-top: 24px;
 		margin-left: 0;
 	}
-	@media screen and (max-width: 1024px) {
-		display: none;
-	}
 `;
 
 
@@ -103,7 +104,7 @@ const Section = props => {
 						data-aos-duration="500"
 						data-aos-delay="200">
 					<TextContainer>
-						<Body size="large" textAlign="justify"> {props.body} </Body>
+						<Body size="medium" textAlign="justify"> {props.body} </Body>
 					</TextContainer>
 					<ImageWrapper url={props.url} />
 			  </BodyWrapper>

@@ -1,8 +1,8 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 import styled from 'styled-components';
-import {colors} from '../Theme/colors';
-import tommy from '../../tommy.jpg';
+import { colors } from '../Theme/colors';
+import { tommy } from '../../assets';
 import { Title } from '../Typography';
 import 'aos/dist/aos.css';
 

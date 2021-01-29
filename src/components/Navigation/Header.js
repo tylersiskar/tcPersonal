@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { LinkGroup } from './Links';
+import { LinkGroup } from '../Links';
 
 const HeaderWrapper = styled.span`
 	display: flex;

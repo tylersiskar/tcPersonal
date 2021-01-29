@@ -1,14 +1,7 @@
 import React from 'react';
-import brooklyn from '../brooklyn.jpg';
-import buffalo from '../buffalo.jpg';
-import psu from '../psu.jpg';
-import cafe from '../cafe.jpg';
-import books from '../books.jpg';
+import { brooklyn, buffalo, psu, cafe, books } from '../assets';
 import styled from 'styled-components';
-import TileGroup from '../components/Tile/TileGroup';
-import { Title } from '../components/Typography';
-import Section from '../components/Section/Section';
-import SideNavigation from '../components/SideNavigation';
+import { SideNavigation, TileGroup, Title, Section } from '../components';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/index';
 // import { colors } from '../colors';

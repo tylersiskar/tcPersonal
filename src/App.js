@@ -1,10 +1,7 @@
 import React, { Fragment } from 'react';
 import CoverPage from './pages/CoverPage';
-import Footer from './components/Footer';
-import tommy from './tommy.jpg';
-import work from './work.jpg';
-import cafe from './cafe.jpg';
-import books from './books.jpg';
+import { Footer } from './components';
+import { tommy, work, cafe, books } from './assets';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';

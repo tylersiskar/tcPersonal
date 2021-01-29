@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import useIntersect from '../pages/useIntersect';
+import useIntersect from '../../pages/useIntersect';
 
 const SideNavigationContainer = styled.div`
   display: flex;

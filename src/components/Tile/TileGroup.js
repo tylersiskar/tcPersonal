@@ -6,11 +6,11 @@ const Container = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	align-items: center;
 	height: 100%;
 	width: 100%;
 	@media screen and (max-width: 1024px) {
 		flex-direction: column;
-		width: 100%;
 	}
 `;
 

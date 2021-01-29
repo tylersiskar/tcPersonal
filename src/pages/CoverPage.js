@@ -80,19 +80,19 @@ class CoverPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      scollPosition: window.pageYOffset || 0
+      scrollPosition: window.pageYOffset || 0
     }
   }
   componentDidMount() {
     this.props.fetchPosts();
     window.addEventListener('scroll', () => {
-      this.setState({ scollPosition: window.pageYOffset});
+      this.setState({ scrollPosition: window.pageYOffset});
     });
   };
 
   componentWillUnmount() {
     window.removeEventListener('scroll', () => {
-      this.setState({ scollPosition: window.pageYOffset});
+      this.setState({ scrollPosition: window.pageYOffset});
     });
   }
 
@@ -110,10 +110,34 @@ class CoverPage extends React.Component {
       } = this.props.posts.fields;
         return (
           <div style={{width: '100%'}}>
-            <Section fromColor="#001021" color="#022C35" title={aboutTitle} bodyHeader="Hometown" body={aboutBody} id={aboutTitle.toLowerCase()} url={buffalo}/>
-            <Section fromColor="#022C35" color="#034748" title={educationTitle} body={educationBody} bodyHeader="Schools" id={educationTitle.toLowerCase()} url={psu} />
-            <Section fromColor="#034748" color='#085665' title={workTitle} body={workBody} bodyHeader="Experience" id={workTitle.toLowerCase()} url={books} />
-            <Section fromColor='#085665' color='#0C6481' title={interestTitle} body={interestBody} bodyHeader="Hobbies" id={interestTitle.toLowerCase()} url={cafe} />
+            <Section 
+              fromColor="#001021" 
+              color="#022C35" 
+              title={aboutTitle} 
+              body={aboutBody} 
+              id={aboutTitle.toLowerCase()} 
+              url={buffalo}/>
+            <Section 
+              fromColor="#022C35" 
+              color="#034748" 
+              title={educationTitle} 
+              body={educationBody} 
+              id={educationTitle.toLowerCase()} 
+              url={psu} />
+            <Section 
+              fromColor="#034748" 
+              color='#085665' 
+              title={workTitle} 
+              body={workBody} 
+              id={workTitle.toLowerCase()} 
+              url={books} />
+            <Section 
+              fromColor='#085665' 
+              color='#0C6481' 
+              title={interestTitle} 
+              body={interestBody} 
+              id={interestTitle.toLowerCase()} 
+              url={cafe} />
           </div>
         )
     } 
@@ -135,7 +159,7 @@ class CoverPage extends React.Component {
           </Background>
           <WholePage>
             {this._renderPosts()}
-            <SideNavigation show={this.state.scollPosition > 750} links={sideNavLinks} />
+            <SideNavigation show={this.state.scrollPosition > 750} links={sideNavLinks} />
           </WholePage>
         </Page>
     );

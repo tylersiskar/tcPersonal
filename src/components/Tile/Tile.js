@@ -1,20 +1,17 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 import styled from 'styled-components';
-import { colors } from '../Theme/colors';
 import { tommy } from '../../assets';
 import { Title } from '../Typography';
 import 'aos/dist/aos.css';
 
 const propTypes = {
-	backgroundColor: Proptypes.string,
 	header: Proptypes.string,
 	body: Proptypes.string,
 	img: Proptypes.string
 };
 
 const defaultProps = {
-	backgroundColor: colors.white,
 	img: tommy
 };
 

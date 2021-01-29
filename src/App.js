@@ -45,39 +45,35 @@ const sideNavLinks = [
     {
       label: "INTERESTS",
       href: "#interests",
-    }];
+    }
+];
 
 class App extends React.Component {
+
   componentDidMount() {
     AOS.init();
   }
- _renderScreen = (route) => {
-    switch(route) {
-      case 'coverPage':
-      default:
-        return(
-          <Fragment>
-          <CoverPage {...this.props} sideNavLinks={sideNavLinks} tiles={tiles}/>
-          <Footer />
-          </Fragment>
-          );
-    }
 
+  _renderScreen = (route) => {
+    return(
+      <Fragment>
+        <CoverPage {...this.props} sideNavLinks={sideNavLinks} tiles={tiles}/>
+        <Footer />
+      </Fragment>
+    );
   }
 
-    render() {
-        return (
-            <Switch>
-              <Route 
-                exact
-                path="/" 
-                component={() => this._renderScreen('coverpage')}/>
-            <Redirect to="/"/>
-            </Switch>
-
+  render() {
+    return (
+        <Switch>
+          <Route 
+            exact
+            path="/" 
+            component={() => this._renderScreen('coverpage')}/>
+          <Redirect to="/"/>
+        </Switch>
     );
   }
 }
-
 
 export default App;

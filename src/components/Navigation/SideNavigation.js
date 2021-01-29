@@ -43,7 +43,6 @@ const SideNavigation = props => {
     threshold: buildThresholdArray()
   });
 
-  console.log(entry.intersectionRatio);
   return (
     <React.Fragment>
     {show &&

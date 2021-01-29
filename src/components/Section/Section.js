@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Proptypes from 'prop-types';
-// import Link  from '../Links/Link';
 import { Title, Body } from '../Typography';
-// import { colors } from '../../colors';
 // import useIntersect from '../../pages/useIntersect';
 import 'aos/dist/aos.css';
 

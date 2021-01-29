@@ -3,7 +3,7 @@ import { brooklyn, buffalo, psu, cafe, books } from '../assets';
 import styled from 'styled-components';
 import { SideNavigation, TileGroup, Title, Section } from '../components';
 import { connect } from 'react-redux';
-import { fetchPosts } from '../actions/index';
+import { fetchPosts } from '../redux/actions/index';
 
 const WholePage = styled.div`
   display: flex;
@@ -83,12 +83,13 @@ class CoverPage extends React.Component {
       scrollPosition: window.pageYOffset || 0
     }
   }
+
   componentDidMount() {
     this.props.fetchPosts();
     window.addEventListener('scroll', () => {
       this.setState({ scrollPosition: window.pageYOffset});
     });
-  };
+  }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', () => {
@@ -141,7 +142,7 @@ class CoverPage extends React.Component {
           </div>
         )
     } 
-  }
+  };
       
 
   render() {
@@ -169,4 +170,5 @@ class CoverPage extends React.Component {
 function mapStateToProps(state) {
   return { posts: state.posts.data };
 }
+
 export default connect(mapStateToProps, { fetchPosts })(CoverPage);

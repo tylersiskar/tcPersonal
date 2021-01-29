@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import postsReducer from './reducers';
+import postsReducer from './redux/reducers';
 import promise from 'redux-promise';
 
 const store = createStore(postsReducer, applyMiddleware(promise));

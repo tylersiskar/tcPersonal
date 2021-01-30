@@ -21,11 +21,9 @@ const Link = styled.a`
   width: fit-content;
   color: white;
   text-decoration: none;
-  text-transform: lowercase;
-  font-family: bodoni;
+  text-transform: uppercase;
   font-size: 20px;
   line-height: 20px;
-  letter-spacing: 4px;
   padding: 12px;
   margin-bottom: 64px;
   opacity: 1;

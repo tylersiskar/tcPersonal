@@ -60,22 +60,6 @@ const StyledHeader = styled.header`
   }
 `;
 
-const ContentWrapper = styled.span`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
-  width: 100%;
-  @media screen and (max-width: 1024px) {
-    padding: 0;
-    height: 100%;
-  }  
-  @media screen and  (max-width: 1024px) {
-    padding: 0;
-  }
-`;
-
-
 class CoverPage extends React.Component {
   constructor(props) {
     super(props);

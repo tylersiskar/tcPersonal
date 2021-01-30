@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Proptypes from 'prop-types';
 import { Title, Body } from '../Typography';
 import 'aos/dist/aos.css';
+import ReactMarkdown from 'react-markdown'
 
 const propTypes = {
 	titleColor: Proptypes.string,
@@ -60,15 +61,22 @@ const TextContainer = styled.span`
 		flex-basis: 100%;	
 		margin-right: 0;
 	}
+	a {
+		color: #4C74B9;
+		&:hover {
+			color: white;
+		}
+	}
 `;
 
 const TitleWrapper = styled.span`
 	display: flex;
 	justify-content: flex-start;
-	padding-top: 32px;
+	padding: 32px 0;
+
 	@media screen and (max-width: 1024px) {
 		justify-content: center;
-		padding-top: 0;
+		padding: 0;
 	}
 `;
 
@@ -106,7 +114,9 @@ const Section = props => {
 						data-aos-duration="500"
 						data-aos-delay="200">
 					<TextContainer>
-						<Body size="medium"> {props.body} </Body>
+						<Body size="medium">
+							<ReactMarkdown linkTarget="_blank">{props.body}</ReactMarkdown> 
+						</Body>
 					</TextContainer>
 					<ImageWrapper url={props.url} />
 			  </BodyWrapper>

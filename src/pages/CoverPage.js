@@ -1,7 +1,7 @@
 import React from 'react';
 import { brooklyn, buffalo, psu, cafe, neighborhood } from '../assets';
 import styled from 'styled-components';
-import { SideNavigation, TileGroup, Title, Section } from '../components';
+import { TileGroup, Title, Section } from '../components';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../redux/actions/index';
 
@@ -130,7 +130,7 @@ class CoverPage extends React.Component {
       
 
   render() {
-    const { tiles, sideNavLinks } = this.props;
+    const { tiles } = this.props;
 
     return (
         <Page src={brooklyn}>
@@ -142,7 +142,7 @@ class CoverPage extends React.Component {
           </Background>
           <WholePage>
             {this._renderPosts()}
-            <SideNavigation show={this.state.scrollPosition > 750} links={sideNavLinks} />
+            {/*<SideNavigation show={this.state.scrollPosition > 750} links={sideNavLinks} />*/}
           </WholePage>
         </Page>
     );

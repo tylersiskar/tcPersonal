@@ -34,7 +34,6 @@ const SizeWrapper = styled.div`
 	background: transparent;
 	min-height: 100vh;
 	box-sizing: border-box;
-	width: calc(100% - 300px);
 	@media screen and (max-width: 1024px) {
 		width: 100%;
 		min-height: 300px;
@@ -115,7 +114,7 @@ const Section = props => {
 						data-aos-delay="200">
 					<TextContainer>
 						<Body size="medium">
-							<ReactMarkdown linkTarget="_blank">{props.body}</ReactMarkdown> 
+							<ReactMarkdown linkTarget="_blank" parserOptions={{ commonmark: true }}>{props.body}</ReactMarkdown> 
 						</Body>
 					</TextContainer>
 					<ImageWrapper url={props.url} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { brooklyn, buffalo, psu, cafe, books } from '../assets';
+import { brooklyn, buffalo, psu, cafe, neighborhood } from '../assets';
 import styled from 'styled-components';
 import { SideNavigation, TileGroup, Title, Section } from '../components';
 import { connect } from 'react-redux';
@@ -131,7 +131,7 @@ class CoverPage extends React.Component {
               title={workTitle} 
               body={workBody} 
               id={workTitle.toLowerCase()} 
-              url={books} />
+              url={neighborhood} />
             <Section 
               fromColor='#085665' 
               color='#0C6481' 
@@ -154,9 +154,7 @@ class CoverPage extends React.Component {
             <StyledHeader data-aos="fade-down" data-aos-duration="500" data-aos-delay="100">
               <Title header size="small" color="white" bold>Thomas C. Siskar</Title>
             </StyledHeader>
-            <ContentWrapper>
-              <TileGroup data={tiles} />
-            </ContentWrapper>
+            <TileGroup data={tiles} />
           </Background>
           <WholePage>
             {this._renderPosts()}

@@ -18,7 +18,7 @@ const TitleComponent = styled.h1`
 	font-size: ${({ fontSize, size }) => fontSize(size)}px;
 	font-weight: ${({ bold }) => bold ? 'bold' : '450'};
 	color: ${({ color }) => color};
-	font-family: bodoni;
+	font-family: 'Montserrat', sans-serif;
 	margin: 0;
 	text-transform: uppercase;
 	z-index: ${({ header }) => header ? 999 : 0};

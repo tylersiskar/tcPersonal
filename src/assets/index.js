@@ -8,3 +8,4 @@ export { default as resume } from './MBA_Siskar_Thomas.pdf';
 export { default as tommy } from './tommy.jpg';
 export { default as ub } from './ub.png';
 export { default as work } from './work.jpg';
+export { default as neighborhood } from './neighborhood.jpg';

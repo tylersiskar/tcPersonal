@@ -65,8 +65,10 @@ const TextContainer = styled.span`
 const TitleWrapper = styled.span`
 	display: flex;
 	justify-content: flex-start;
+	padding-top: 32px;
 	@media screen and (max-width: 1024px) {
 		justify-content: center;
+		padding-top: 0;
 	}
 `;
 
@@ -97,14 +99,14 @@ const Section = props => {
 						data-aos="fade-up"
 						data-aos-duration="500"
 						data-aos-delay="200">
-					<Title size="large"  color={props.titleColor}> {props.title} </Title>
+					<Title size="medium"  color={props.titleColor}> {props.title} </Title>
 			  </TitleWrapper>
 			  <BodyWrapper 
 						data-aos="fade-up"
 						data-aos-duration="500"
 						data-aos-delay="200">
 					<TextContainer>
-						<Body size="medium" textAlign="justify"> {props.body} </Body>
+						<Body size="medium"> {props.body} </Body>
 					</TextContainer>
 					<ImageWrapper url={props.url} />
 			  </BodyWrapper>

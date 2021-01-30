@@ -16,14 +16,12 @@ const defaultProps = {
 
 const BodyComponent = styled.span`
 	letter-spacing: 1px;
-	font-family: bodoni;
 	font-size: ${({ size }) => size}px;
 	font-weight: ${({ bold }) => bold ? 'bold' : '450'};
 	color: ${({ color }) => color};
 	@media (max-width: 1024px) {
 		font-size: ${({ size }) => size - 4}px;
 	}
-	text-align: ${({ textAlign }) => textAlign};
 `;
 
 const Body = props => {

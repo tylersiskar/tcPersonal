@@ -49,7 +49,7 @@ const AllWrapper = styled.a`
 	min-width: 250px;
 	text-decoration: none;
 	img {
-		opacity: 0.5;
+		opacity: 0.25;
 	}
 	h1 {
 		color: #086375

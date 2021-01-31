@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Title, Body } from '../Typography';
-import { resume } from '../../assets';
+import { Title, Body, LogoMenu } from '../';
 
 const FooterWrapper = styled.span`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 350px;
+  height: 75vh;
   width: 100%;
   background-color: #000E1B;
 `;
@@ -39,30 +38,32 @@ const StyledHeader = styled.header`
   }
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 5vw 10vh;
+  text-align: center;
+
+`;
+
+const BodyWrapper = styled.div`
+  padding-top: 2vh;
+  text-align: center;
+`;
+
 const LinkContainer = styled.span`
   display: flex;
 `;
-
-const Link = styled.a`
-  width: fit-content;
-  color: white;
-  text-decoration: none;
-  text-transform: lowercase;
-  font-family: bodoni;
-  font-size: 16px;
-  line-height: 16px;
-  letter-spacing: 2px;
-  padding: 0 20px;
-  opacity: 1;
-  &:hover {
-    color: lightgray;
-    cursor: pointer;
-  }
-`;
-
 const Footer = props => {
 	return (
           <FooterWrapper id="footer">
+            <Wrapper>
+              <Title header size="medium" color="white">Thanks for visiting.</Title>
+              <BodyWrapper>
+              <Body>Contact me via email or LinkedIn or view my resume by clicking the icons below.</Body>
+              </BodyWrapper>
+            </Wrapper>
 	          <StyledHeader>
 	          	<Title header size={36} color="white" bold>Thomas C. Siskar</Title>
 	          </StyledHeader>
@@ -70,11 +71,7 @@ const Footer = props => {
 	          	<Body size="medium"> Investment Strategist & MBA Student </Body>
 	          </div>
 	          <LinkContainer>
-		          <Link href="mailto:tomcsiskar@gmail.com"> email </Link>
-		          <Link href="https://www.linkedin.com/in/thomas-siskar/" target="_blank"> linkedin </Link>
-		          <Link href={resume} target="_blank"> 
-		          resume 
-		          </Link>
+		          <LogoMenu />
 	          </LinkContainer>
           </FooterWrapper>
 	)

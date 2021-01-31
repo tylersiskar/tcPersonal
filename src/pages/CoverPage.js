@@ -131,7 +131,8 @@ class CoverPage extends React.Component {
               title={interestTitle} 
               body={interestBody} 
               id={interestTitle.toLowerCase()} 
-              url={cafe} />
+              url={cafe}
+              reverse />
           </div>
         )
     } 

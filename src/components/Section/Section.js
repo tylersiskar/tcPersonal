@@ -19,7 +19,7 @@ const SectionWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	background: linear-gradient(${({ fromColor }) => fromColor}, ${({ color }) => color});
-	padding: 148px 5vw 32px;
+	padding: 148px 5vw 0;
 	min-height: 100vh;
 	box-sizing: border-box;
 	@media screen and (max-width: 1024px) {
@@ -45,6 +45,9 @@ const BodyWrapper = styled.span`
 	flex-direction: row;
 	@media screen and (max-width: 1272px) {
 		flex-direction: column;
+	}
+	p {
+		margin: 0;
 	}
 `;
 
@@ -125,7 +128,7 @@ const Section = props => {
 					{reverse && <ImageWrapper url={url} reverse={reverse} />}
 					<TextContainer reverse={reverse}>
 						<Body size="medium">
-							<ReactMarkdown linkTarget="_blank" parserOptions={{ commonmark: true }}>{body}</ReactMarkdown> 
+							<ReactMarkdown linkTarget="_blank" parserOptions={{ commonmark: true }} style={{margin: 0}}>{body}</ReactMarkdown> 
 						</Body>
 					</TextContainer>
 					{!reverse && <ImageWrapper url={url} reverse={reverse} />}

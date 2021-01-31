@@ -14,8 +14,8 @@ const defaultProps = {
 	color: 'white'
 }
 
-const BodyComponent = styled.span`
-	letter-spacing: 1px;
+const BodyComponent = styled.p`
+	margin: 0;
 	font-size: ${({ size }) => size}px;
 	font-weight: ${({ bold }) => bold ? 'bold' : '450'};
 	color: ${({ color }) => color};

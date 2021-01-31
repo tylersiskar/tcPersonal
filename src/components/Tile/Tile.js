@@ -107,7 +107,7 @@ const Image = styled.img`
     height: 100%;
     overflow: hidden;
     object-fit: cover;
-    object-position: center center;
+    object-position: top;
     transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
     opacity: 0.5;
     &:hover {

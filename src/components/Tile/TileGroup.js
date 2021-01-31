@@ -9,7 +9,7 @@ const Container = styled.div`
 	align-items: center;
 	height: 100%;
 	width: 100%;
-	@media screen and (max-width: 1024px) {
+	@media screen and (max-width: 767px) {
 		flex-direction: column;
 	}
 `;
@@ -33,14 +33,14 @@ const TileWrapper = styled.div`
 
 
 const TileGroup = props => {
-	const { data } = props;
+	const { data, ref } = props;
 	let delay = 200;
 	return (
 		<Container>
 		{data.map((item, index) => {
 			delay = delay + 100;
 			return (
-				<TileWrapper key={index} data={data}>
+				<TileWrapper key={index} data={data} ref={ref}>
 					<Tile delay={delay} href={item.href} header={item.link} img={item.img} onClick={item.onClick} id={item.id}/>
 				</TileWrapper>
 				)

@@ -1,9 +1,10 @@
 import React from 'react';
 import { brooklyn, buffalo, psu, cafe, neighborhood } from '../assets';
 import styled from 'styled-components';
-import { TileGroup, Title, Section } from '../components';
+import { TileGroup, Title, Section, Header } from '../components';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../redux/actions/index';
+import { InView } from 'react-intersection-observer';
 
 const WholePage = styled.div`
   display: flex;
@@ -36,7 +37,7 @@ const Background = styled.div`
   }
 `;
 
-const StyledHeader = styled.header`
+const StyledHeader = styled.div`
   display: inline-flex;
   align-items: center;
   width: fit-content;
@@ -60,25 +61,32 @@ const StyledHeader = styled.header`
   }
 `;
 
+const HeaderContainer = styled.div`
+  display: block;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+`;
+
+const Tiles = styled.div`
+  display: flex;
+  height: fit-content;
+  width: 100%;
+  @media screen and (max-width: 767px) {
+    height: 100%;
+  }
+`;
 class CoverPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      scrollPosition: window.pageYOffset || 0
+      inView: true,
+      tileInView: true
     }
   }
 
   componentDidMount() {
     this.props.fetchPosts();
-    window.addEventListener('scroll', () => {
-      this.setState({ scrollPosition: window.pageYOffset});
-    });
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', () => {
-      this.setState({ scrollPosition: window.pageYOffset});
-    });
   }
 
   _renderPosts = () => {
@@ -108,7 +116,8 @@ class CoverPage extends React.Component {
               title={educationTitle} 
               body={educationBody} 
               id={educationTitle.toLowerCase()} 
-              url={psu} />
+              url={psu} 
+              reverse/>
             <Section 
               fromColor="#034748" 
               color='#085665' 
@@ -134,15 +143,23 @@ class CoverPage extends React.Component {
 
     return (
         <Page src={brooklyn}>
+        <HeaderContainer>
+        <Header showHeader={!this.state.tileInView} tileData={tiles}/>
+        </HeaderContainer>
           <Background>
             <StyledHeader data-aos="fade-down" data-aos-duration="500" data-aos-delay="100">
               <Title header size="small" color="white" bold>Thomas C. Siskar</Title>
             </StyledHeader>
-            <TileGroup data={tiles} />
+            <InView onChange={inView => this.setState({ tileInView: inView})}>
+              {({ inView, ref, entry }) => (
+                <Tiles ref={ref}>
+                  <TileGroup data={tiles} />
+                </Tiles>
+              )}
+            </InView>
           </Background>
           <WholePage>
             {this._renderPosts()}
-            {/*<SideNavigation show={this.state.scrollPosition > 750} links={sideNavLinks} />*/}
           </WholePage>
         </Page>
     );

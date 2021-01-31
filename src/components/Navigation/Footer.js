@@ -62,7 +62,7 @@ const Link = styled.a`
 
 const Footer = props => {
 	return (
-          <FooterWrapper>
+          <FooterWrapper id="footer">
 	          <StyledHeader>
 	          	<Title header size={36} color="white" bold>Thomas C. Siskar</Title>
 	          </StyledHeader>

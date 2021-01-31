@@ -19,7 +19,7 @@ const SectionWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	background: linear-gradient(${({ fromColor }) => fromColor}, ${({ color }) => color});
-	padding: 0 32px 24px 32px;
+	padding: 48px 5vw 32px;
 	min-height: 100vh;
 	box-sizing: border-box;
 	@media screen and (max-width: 1024px) {
@@ -54,11 +54,11 @@ const TextContainer = styled.span`
 	align-items: center;
 	border-radius: 24px;
 	background: transparent;
-	margin-right: 24px;
+	margin-${({ reverse }) => reverse ? 'left' : 'right'}: 24px;
 	flex-basis: 50%;
 	@media screen and (max-width: 1024px) {
 		flex-basis: 100%;	
-		margin-right: 0;
+		margin: 0;
 	}
 	a {
 		color: #4C74B9;
@@ -71,8 +71,7 @@ const TextContainer = styled.span`
 const TitleWrapper = styled.span`
 	display: flex;
 	justify-content: flex-start;
-	padding: 32px 0;
-
+	padding-bottom: 32px;
 	@media screen and (max-width: 1024px) {
 		justify-content: center;
 		padding: 0;
@@ -88,36 +87,48 @@ const ImageWrapper = styled.span`
 	min-height: 300px;
 	border-radius: 24px;
 	width: 50%;
-	margin-left: 24px;
+	margin-${({ reverse }) => reverse ? 'right' : 'left'}: 24px;
 	@media screen and (max-width: 1272px) {
 		width: 100%;
 		margin-top: 24px;
 		margin-left: 0;
+		margin-right: 0;
 	}
 `;
 
 
 const Section = props => {
+	const { 
+		color, 
+		fromColor, 
+		id, 
+		titleColor, 
+		title, 
+		body, 
+		url, 
+		reverse
+	} = props;
 
 	return (
-		<SectionWrapper color={props.color} fromColor={props.fromColor} id={props.id} >
+		<SectionWrapper color={color} fromColor={fromColor} id={id} >
 			<SizeWrapper>
 			  <TitleWrapper 
-						data-aos="fade-up"
-						data-aos-duration="500"
-						data-aos-delay="200">
-					<Title size="medium"  color={props.titleColor}> {props.title} </Title>
+					data-aos="fade-up"
+					data-aos-duration="500"
+					data-aos-delay="200" >
+					<Title size="medium"  color={titleColor}> {title} </Title>
 			  </TitleWrapper>
 			  <BodyWrapper 
-						data-aos="fade-up"
-						data-aos-duration="500"
-						data-aos-delay="200">
-					<TextContainer>
+					data-aos="fade-up"
+					data-aos-duration="500"
+					data-aos-delay="200">
+					{reverse && <ImageWrapper url={url} reverse={reverse} />}
+					<TextContainer reverse={reverse}>
 						<Body size="medium">
-							<ReactMarkdown linkTarget="_blank" parserOptions={{ commonmark: true }}>{props.body}</ReactMarkdown> 
+							<ReactMarkdown linkTarget="_blank" parserOptions={{ commonmark: true }}>{body}</ReactMarkdown> 
 						</Body>
 					</TextContainer>
-					<ImageWrapper url={props.url} />
+					{!reverse && <ImageWrapper url={url} reverse={reverse} />}
 			  </BodyWrapper>
 		  </SizeWrapper>
 		</SectionWrapper>

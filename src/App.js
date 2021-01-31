@@ -49,7 +49,6 @@ const sideNavLinks = [
 ];
 
 class App extends React.Component {
-
   componentDidMount() {
     AOS.init();
   }
@@ -57,13 +56,14 @@ class App extends React.Component {
   _renderScreen = (route) => {
     return(
       <Fragment>
-        <CoverPage {...this.props} sideNavLinks={sideNavLinks} tiles={tiles}/>
+        <CoverPage {...this.props} sideNavLinks={sideNavLinks} tiles={tiles} />
         <Footer />
       </Fragment>
     );
   }
 
   render() {
+    console.log(this.state, '///');
     return (
         <Switch>
           <Route 

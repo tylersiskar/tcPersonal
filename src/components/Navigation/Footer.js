@@ -61,7 +61,7 @@ const Footer = props => {
             <Wrapper>
               <Title header size="medium" color="white">Thanks for visiting.</Title>
               <BodyWrapper>
-              <Body>Contact me via email or LinkedIn or view my resume by selecting the icons below.</Body>
+              <Body>Contact me via email or LinkedIn, or view my resume by selecting the icons below.</Body>
               </BodyWrapper>
             </Wrapper>
 	          <StyledHeader>

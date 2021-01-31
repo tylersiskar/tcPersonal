@@ -19,7 +19,7 @@ const SectionWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	background: linear-gradient(${({ fromColor }) => fromColor}, ${({ color }) => color});
-	padding: 48px 5vw 32px;
+	padding: 148px 5vw 32px;
 	min-height: 100vh;
 	box-sizing: border-box;
 	@media screen and (max-width: 1024px) {

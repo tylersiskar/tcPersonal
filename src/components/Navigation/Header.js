@@ -80,7 +80,7 @@ const Header = props => {
 			return (
 				<LinkWrapper>
 					<Title size={16} color="white">
-					<Link href={item.href}>{item.link}</Link>
+					<Link href={item.href} smooth>{item.link}</Link>
 					</Title>
 				</LinkWrapper>)
 		})

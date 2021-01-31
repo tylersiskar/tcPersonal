@@ -20,7 +20,7 @@ const SectionWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	background: linear-gradient(${({ fromColor }) => fromColor}, ${({ color }) => color});
-	padding: 148px 5vw 5vh;
+	padding: 148px 5vw ${({ interests }) => interests ? '5vh' : 0};
 	min-height: 100vh;
 	box-sizing: border-box;
 	@media screen and (max-width: 1024px) {
@@ -124,7 +124,7 @@ const Section = props => {
 	} = props;
 
 	return (
-		<SectionWrapper color={color} fromColor={fromColor} id={id} >
+		<SectionWrapper color={color} fromColor={fromColor} id={id} interests={interests}>
 			<SizeWrapper>
 			  <TitleWrapper 
 					data-aos="fade-up"

@@ -78,7 +78,7 @@ const Header = props => {
 	function _renderChildren() {
 		return tileData.map((item, index) => {
 			return (
-				<LinkWrapper>
+				<LinkWrapper key={index}>
 					<Title size={16} color="white">
 					<Link href={item.href} smooth>{item.link}</Link>
 					</Title>

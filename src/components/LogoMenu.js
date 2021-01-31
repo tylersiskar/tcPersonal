@@ -12,12 +12,6 @@ const defaultProps = {
 };
 
 const logoData = [
-  // {
-  //   href: 'https://www.facebook.com/tyler.siskar',
-  //   path: {
-  //     d: 'M115.4 65.5V48.3c0-2.6.1-4.6.4-6 .2-1.4.8-2.8 1.6-4.2.8-1.4 2.2-2.3 4.1-2.8 1.9-.5 4.4-.8 7.6-.8h17.2V0h-27.5c-15.9 0-27.4 3.8-34.3 11.3-7 7.6-10.5 18.8-10.5 33.5v20.8H53.4V100H74v100h41.4V100H143l3.6-34.5h-31.2z'
-  //   },
-  // },
   {
     href: 'mailto:tomcsiskar@gmail.com',
     path: {

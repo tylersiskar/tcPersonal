@@ -40,6 +40,9 @@ const TileWrapper = styled.div`
     	min-width:100px;
     	min-height: 100px;
     }
+  	@media screen and (max-width: 767px) {
+  		border-radius: 0;
+  	}
 `;
 
 const AllWrapper = styled.a`
@@ -90,6 +93,9 @@ const ColorWrapper = styled.div`
 	@media screen and (max-width: 1024px) {
     	width: 100%;
     }
+  	@media screen and (max-width: 767px) {
+  		border-radius: 0;
+  	}
 `;
 
 const Image = styled.img`
@@ -114,6 +120,9 @@ const Image = styled.img`
 	@media screen and (max-width: 1024px) {
     	width: 100%;
     }
+  	@media screen and (max-width: 767px) {
+  		border-radius: 0;
+  	}
 `;
 
 const HeaderWrapper = styled.span`

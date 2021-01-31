@@ -33,7 +33,7 @@ const Background = styled.div`
   background-position: center;
   @media screen and (max-width: 767px) {
     padding: 0;
-    background: lightgray;
+    background: #001021;
   }
 `;
 
@@ -58,6 +58,9 @@ const StyledHeader = styled.div`
     background-color: #086375;
     opacity: 1;
     z-index: 0;
+  }
+  @media screen and (max-width: 767px) {
+    display: none;
   }
 `;
 
@@ -132,7 +135,7 @@ class CoverPage extends React.Component {
               body={interestBody} 
               id={interestTitle.toLowerCase()} 
               url={cafe}
-              reverse />
+              interests/>
           </div>
         )
     } 
@@ -144,9 +147,9 @@ class CoverPage extends React.Component {
 
     return (
         <Page src={brooklyn}>
-        <HeaderContainer>
-        <Header showHeader={!this.state.tileInView} tileData={tiles}/>
-        </HeaderContainer>
+          <HeaderContainer>
+            <Header showHeader={!this.state.tileInView} tileData={tiles}/>
+          </HeaderContainer>
           <Background>
             <StyledHeader data-aos="fade-down" data-aos-duration="500" data-aos-delay="100">
               <Title header size="small" color="white" bold>Thomas C. Siskar</Title>

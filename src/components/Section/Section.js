@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Proptypes from 'prop-types';
 import { Title, Body } from '../Typography';
+import { IconGroup } from '../Icons';
 import 'aos/dist/aos.css';
 import ReactMarkdown from 'react-markdown'
 
@@ -19,12 +20,13 @@ const SectionWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	background: linear-gradient(${({ fromColor }) => fromColor}, ${({ color }) => color});
-	padding: 148px 5vw 0;
+	padding: 148px 5vw 5vh;
 	min-height: 100vh;
 	box-sizing: border-box;
 	@media screen and (max-width: 1024px) {
 		width: 100%;
 		min-height: 300px;
+		padding-top: 48px;
 	}
 `;
 
@@ -43,7 +45,7 @@ const SizeWrapper = styled.div`
 const BodyWrapper = styled.span`
 	display: flex;
 	flex-direction: row;
-	@media screen and (max-width: 1272px) {
+	@media screen and (max-width: 1024px) {
 		flex-direction: column;
 	}
 	p {
@@ -55,11 +57,13 @@ const TextContainer = styled.span`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	width: 100%;
 	border-radius: 24px;
 	background: transparent;
 	margin-${({ reverse }) => reverse ? 'left' : 'right'}: 24px;
 	flex-basis: 50%;
 	@media screen and (max-width: 1024px) {
+		margin-${({ reverse }) => reverse ? 'bottom' : 'top'}: 24px;
 		flex-basis: 100%;	
 		margin: 0;
 	}
@@ -77,7 +81,7 @@ const TitleWrapper = styled.span`
 	padding-bottom: 32px;
 	@media screen and (max-width: 1024px) {
 		justify-content: center;
-		padding: 0;
+		padding-bottom: 16px;
 	}
 `;
 
@@ -91,14 +95,20 @@ const ImageWrapper = styled.span`
 	border-radius: 24px;
 	width: 50%;
 	margin-${({ reverse }) => reverse ? 'right' : 'left'}: 24px;
-	@media screen and (max-width: 1272px) {
+	@media screen and (max-width: 1024px) {
 		width: 100%;
-		margin-top: 24px;
+		margin-${({ reverse }) => reverse ? 'bottom' : 'top'}: 24px;
 		margin-left: 0;
 		margin-right: 0;
 	}
 `;
 
+const StyledDiv = styled.div`
+	width: 50%;
+	@media screen and (max-width: 1024px) {
+		width: 100%;
+	}
+`;
 
 const Section = props => {
 	const { 
@@ -109,7 +119,8 @@ const Section = props => {
 		title, 
 		body, 
 		url, 
-		reverse
+		reverse,
+		interests
 	} = props;
 
 	return (
@@ -125,13 +136,19 @@ const Section = props => {
 					data-aos="fade-up"
 					data-aos-duration="500"
 					data-aos-delay="200">
-					{reverse && <ImageWrapper url={url} reverse={reverse} />}
+					{reverse && !interests && <ImageWrapper url={url} reverse={reverse} />}
 					<TextContainer reverse={reverse}>
 						<Body size="medium">
 							<ReactMarkdown linkTarget="_blank" parserOptions={{ commonmark: true }} style={{margin: 0}}>{body}</ReactMarkdown> 
 						</Body>
 					</TextContainer>
-					{!reverse && <ImageWrapper url={url} reverse={reverse} />}
+
+					{!reverse && !interests && <ImageWrapper url={url} reverse={reverse} />}
+
+					{interests && 
+						<StyledDiv>
+						<IconGroup />
+						</StyledDiv>}
 			  </BodyWrapper>
 		  </SizeWrapper>
 		</SectionWrapper>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { brooklyn, buffalo, psu, cafe, neighborhood } from '../assets';
+import { brooklyn, business, data, psu, cafe } from '../assets';
 import styled from 'styled-components';
 import { TileGroup, Title, Section, Header } from '../components';
 import { connect } from 'react-redux';
@@ -93,79 +93,79 @@ class CoverPage extends React.Component {
   }
 
   _renderPosts = () => {
-    if(this.props.posts && this.props.posts.fields.aboutTitle) {
-      const { 
-        aboutBody, 
-        aboutTitle, 
-        educationTitle, 
-        educationBody, 
-        workTitle, 
-        workBody, 
-        interestTitle, 
-        interestBody, 
+    if (this.props.posts && this.props.posts.fields.aboutTitle) {
+      const {
+        aboutBody,
+        aboutTitle,
+        educationTitle,
+        educationBody,
+        workTitle,
+        workBody,
+        interestTitle,
+        interestBody,
       } = this.props.posts.fields;
-        return (
-          <div style={{width: '100%'}}>
-            <Section 
-              fromColor="#001021" 
-              color="#022C35" 
-              title={aboutTitle} 
-              body={aboutBody} 
-              id={aboutTitle.toLowerCase()} 
-              url={buffalo}/>
-            <Section 
-              fromColor="#022C35" 
-              color="#034748" 
-              title={educationTitle} 
-              body={educationBody} 
-              id={educationTitle.toLowerCase()} 
-              url={psu} 
-              reverse/>
-            <Section 
-              fromColor="#034748" 
-              color='#085665' 
-              title={workTitle} 
-              body={workBody} 
-              id={workTitle.toLowerCase()} 
-              url={neighborhood} />
-            <Section 
-              fromColor='#085665' 
-              color='#0C6481' 
-              title={interestTitle} 
-              body={interestBody} 
-              id={interestTitle.toLowerCase()} 
-              url={cafe}
-              interests/>
-          </div>
-        )
-    } 
+      return (
+        <div style={{ width: '100%' }}>
+          <Section
+            fromColor="#001021"
+            color="#022C35"
+            title={aboutTitle}
+            body={aboutBody}
+            id={aboutTitle.toLowerCase()}
+            url={psu} />
+          <Section
+            fromColor="#022C35"
+            color="#034748"
+            title={educationTitle}
+            body={educationBody}
+            id={educationTitle.toLowerCase()}
+            url={business}
+            reverse />
+          <Section
+            fromColor="#034748"
+            color='#085665'
+            title={workTitle}
+            body={workBody}
+            id={workTitle.toLowerCase()}
+            url={data} />
+          <Section
+            fromColor='#085665'
+            color='#0C6481'
+            title={interestTitle}
+            body={interestBody}
+            id={interestTitle.toLowerCase()}
+            url={cafe}
+            interests />
+        </div>
+      )
+    }
   };
-      
+
 
   render() {
     const { tiles } = this.props;
 
     return (
-        <Page src={brooklyn}>
-          <HeaderContainer>
-            <Header showHeader={!this.state.tileInView} tileData={tiles}/>
-          </HeaderContainer>
-          <Background>
-            <StyledHeader data-aos="fade-down" data-aos-duration="500" data-aos-delay="100">
-              <Title header size="small" color="white" bold>Thomas C. Siskar</Title>
-            </StyledHeader>
-            <InView onChange={inView => this.setState({ tileInView: inView})}>
-              {({ inView, ref, entry }) => (
-                <Tiles ref={ref}>
-                  <TileGroup data={tiles} />
-                </Tiles>
-              )}
-            </InView>
-          </Background>
-          <WholePage>
-            {this._renderPosts()}
-          </WholePage>
-        </Page>
+      <Page src={brooklyn}>
+        <HeaderContainer>
+          <Header showHeader={!this.state.tileInView} tileData={tiles} />
+        </HeaderContainer>
+        <Background>
+          <StyledHeader data-aos="fade-down" data-aos-duration="500" data-aos-delay="100">
+            <Title header size="small" color="white" bold>Thomas C. Siskar</Title>
+          </StyledHeader>
+          <InView onChange={inView => this.setState({ tileInView: inView })}>
+            {({ inView, ref, entry }) => (
+              <Tiles ref={ref}>
+                <TileGroup data={tiles} />
+              </Tiles>
+            )}
+          </InView>
+        </Background>
+        <WholePage>
+          {this._renderPosts()}
+        </WholePage>
+      </Page>
     );
   }
 }

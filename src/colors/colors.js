@@ -1,9 +1,10 @@
 const colors = {
-	eggshell: "#F8F4E3",
-	timberwolf: '#BCBAB0',
-	lightTimber: '#D5D0CD',
-	artichoke: '#A2A392',
-	spanishGray: '#9A998C'
+	lightGreen: "#A7D3A6",
+	yellowGreen: "#CFE795",
+	charcoalBlue: "#383F51",
+	babyBlue: "#A3BCF9",
+	brown: "#D4C685"
+
 };
 
 export default colors;

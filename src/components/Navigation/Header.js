@@ -57,7 +57,6 @@ const Links = styled.div`
 `;
 
 const ContactButton = styled.div`
-	flex: 1;
 	justify-content: flex-end;
   @media screen and (max-width: 767px) {
     display: none;
@@ -65,7 +64,6 @@ const ContactButton = styled.div`
 `;
 
 const LogoWrapper = styled.div`
-	flex: 1;
 	justify-content: flex-start;
   @media screen and (max-width: 767px) {
     display: none;
@@ -80,7 +78,7 @@ const Header = props => {
 			return (
 				<LinkWrapper key={index}>
 					<Title size={16} color="white">
-					<Link href={item.href} smooth>{item.link}</Link>
+						<Link href={item.href} smooth>{item.link}</Link>
 					</Title>
 				</LinkWrapper>)
 		})
@@ -89,18 +87,18 @@ const Header = props => {
 	return (
 		<HeaderComponent {...props} show={props.showHeader} showHeader={showHeader}>
 			<LogoWrapper>
-				<Logo show={showHeader} text="TCS"/>
+				<Logo show={showHeader} text="TCS" />
 			</LogoWrapper>
 			<Links showHeader={showHeader}>
-			{_renderChildren()}
+				{_renderChildren()}
 			</Links>
 			<ContactButton>
-				<Title size="2xSmall" textAlign="right"> 
+				<Title size="2xSmall" textAlign="right">
 					<Link href="#footer" color={"#0C6481"} noPadding> Get in touch </Link>
 				</Title>
 			</ContactButton>
 		</HeaderComponent>
-		)
+	)
 };
 
 export default Header;

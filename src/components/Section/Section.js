@@ -21,7 +21,6 @@ const SectionWrapper = styled.div`
 	flex-direction: column;
 	background: linear-gradient(${({ fromColor }) => fromColor}, ${({ color }) => color});
 	padding: 148px 5vw ${({ interests }) => interests ? '5vh' : 0};
-	min-height: 100vh;
 	box-sizing: border-box;
 	@media screen and (max-width: 1024px) {
 		width: 100%;
@@ -34,8 +33,8 @@ const SizeWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	background: transparent;
-	min-height: 100vh;
 	box-sizing: border-box;
+	min-height: 500px;
 	@media screen and (max-width: 1024px) {
 		width: 100%;
 		min-height: 300px;
@@ -91,12 +90,13 @@ const ImageWrapper = styled.span`
 	background-size: cover;
 	background-position: center;
 	min-width: 300px;
-	min-height: 300px;
+	min-height: 500px;
 	border-radius: 24px;
 	width: 50%;
 	margin-${({ reverse }) => reverse ? 'right' : 'left'}: 24px;
 	@media screen and (max-width: 1024px) {
 		width: 100%;
+	min-height: 300px;
 		margin-${({ reverse }) => reverse ? 'bottom' : 'top'}: 24px;
 		margin-left: 0;
 		margin-right: 0;
@@ -111,14 +111,14 @@ const StyledDiv = styled.div`
 `;
 
 const Section = props => {
-	const { 
-		color, 
-		fromColor, 
-		id, 
-		titleColor, 
-		title, 
-		body, 
-		url, 
+	const {
+		color,
+		fromColor,
+		id,
+		titleColor,
+		title,
+		body,
+		url,
 		reverse,
 		interests
 	} = props;
@@ -126,31 +126,31 @@ const Section = props => {
 	return (
 		<SectionWrapper color={color} fromColor={fromColor} id={id} interests={interests}>
 			<SizeWrapper>
-			  <TitleWrapper 
+				<TitleWrapper
 					data-aos="fade-up"
 					data-aos-duration="500"
 					data-aos-delay="200" >
-					<Title size="medium"  color={titleColor}> {title} </Title>
-			  </TitleWrapper>
-			  <BodyWrapper 
+					<Title size="medium" color={titleColor}> {title} </Title>
+				</TitleWrapper>
+				<BodyWrapper
 					data-aos="fade-up"
 					data-aos-duration="500"
 					data-aos-delay="200">
 					{reverse && !interests && <ImageWrapper url={url} reverse={reverse} />}
 					<TextContainer reverse={reverse}>
 						<Body size="medium">
-							<ReactMarkdown linkTarget="_blank" parserOptions={{ commonmark: true }} style={{margin: 0}}>{body}</ReactMarkdown> 
+							<ReactMarkdown linkTarget="_blank" parserOptions={{ commonmark: true }} style={{ margin: 0 }}>{body}</ReactMarkdown>
 						</Body>
 					</TextContainer>
 
 					{!reverse && !interests && <ImageWrapper url={url} reverse={reverse} />}
 
-					{interests && 
+					{interests &&
 						<StyledDiv>
-						<IconGroup />
+							<IconGroup />
 						</StyledDiv>}
-			  </BodyWrapper>
-		  </SizeWrapper>
+				</BodyWrapper>
+			</SizeWrapper>
 		</SectionWrapper>
 	)
 }

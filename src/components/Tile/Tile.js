@@ -78,6 +78,10 @@ const AllWrapper = styled.a`
 	   min-height: 100px;
 	   min-width: 100px;
     }
+  	@media screen and (max-width: 767px) {
+    	height: 25vh;
+    }
+
 `;
 
 const ColorWrapper = styled.div`
@@ -116,7 +120,6 @@ const Image = styled.img`
     	opacity: 0.9;
     }
     z-index: 1;
-    
 	@media screen and (max-width: 1024px) {
     	width: 100%;
     }
@@ -130,6 +133,7 @@ const HeaderWrapper = styled.span`
 	justify-content: center;
 	align-items: center;
 	height: 100%;
+	text-align: center;
 `;
 
 const Tile = props => {
@@ -140,17 +144,17 @@ const Tile = props => {
 
 	return (
 		<AllWrapper data-aos="fade-up"
-					data-aos-duration="500"
-					data-aos-delay={props.delay}
-					onClick={_onClick} id={props.id} href={props.href}>
+			data-aos-duration="500"
+			data-aos-delay={props.delay}
+			onClick={_onClick} id={props.id} href={props.href}>
 			<TileWrapper>
 				<ColorWrapper>
-				<Image src={props.img} />
+					<Image src={props.img} />
 				</ColorWrapper>
-				<div style={{display: 'flex', height: '100%', alignItems: 'center', justifyContent: 'center'}}>
-				<HeaderWrapper>
-					<Title  bold size="xSmall" color={"#086375"}> {props.header} </Title>
-				</HeaderWrapper>
+				<div style={{ display: 'flex', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
+					<HeaderWrapper>
+						<Title bold size="xSmall" color={"#086375"}> {props.header} </Title>
+					</HeaderWrapper>
 				</div>
 			</TileWrapper>
 		</AllWrapper>
